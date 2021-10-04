@@ -1048,7 +1048,7 @@ border-width:2px;
 color:white;</string>
        </property>
        <property name="text">
-        <string>Địa Chỉ Hoàng Mai</string>
+        <string>Địa Chỉ Quận 10</string>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_ChiXoaInfo">

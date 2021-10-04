@@ -983,7 +983,7 @@ class Ui_MainWindow(object):
         self.pushButton_LuuCauHinhFake.setText(_translate("MainWindow", "Lưu Cấu Hình"))
         self.pushButton_FakeVersionApp.setText(_translate("MainWindow", "Fake Version LZD"))
         self.pushButton_QuanHaDong.setText(_translate("MainWindow", "Địa Chỉ Hà Đông"))
-        self.pushButton_QuanHoangMai.setText(_translate("MainWindow", "Địa Chỉ Hoàng Mai"))
+        self.pushButton_QuanHoangMai.setText(_translate("MainWindow", "Địa Chỉ Quận 10"))
         self.pushButton_ChiXoaInfo.setText(_translate("MainWindow", "Chỉ Xóa Info"))
         self.pushButton_MoAppLZDGoc.setText(_translate("MainWindow", "Mở App LZD Gốc"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Điều khiển máy"))

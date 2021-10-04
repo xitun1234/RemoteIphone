@@ -558,7 +558,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # add menu Dia Chi Hoang Mai
         self.menuDiaChiHoangMai = QMenu()
         self.menuDiaChiHoangMai.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/LZD22-DiaChiHoangMai.js"))
+            x.text(), "/RemoteWifi/ZD22-DiaChiQuan10.js"))
 
         self.pushButton_QuanHoangMai.setMenu(self.menuDiaChiHoangMai)
         self.add_menu(self.myListDevice, self.menuDiaChiHoangMai)
@@ -1041,7 +1041,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 urlRemote="", scriptKho=contentData[i], ipMay="")
             pool.start(runnableRemote.capNhatLink)
 
-        time.sleep(2)
+
         msg = QMessageBox()
         msg.setText("Cập Nhật Link Đặt Hàng Thành Công")
         x = msg.exec_()
