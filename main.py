@@ -321,6 +321,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
 
         self.showListMay()
+        
+        self.showCauHinh()
 
         # sshow list check imei
         headerCheckImei = self.tableWidget_CheckImei.horizontalHeader()
@@ -1229,6 +1231,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         response = requests.post("http://lzd420.me/API/setCauHinhFake", dataPost)
         print(response.json())
         
+    def showCauHinh(self):
+        apiViewCauHinh= "https://lzd420.me/api/getCauHinhFake&owner=admin"
+        response = requests.get(apiViewCauHinh,timeout=20)
+        jsonData = response.json()[0]
+        self.lineEdit_InputFakeVersionApp.setText(str(jsonData["appVersion"]))
+    
         
 
 if __name__ == "__main__":
