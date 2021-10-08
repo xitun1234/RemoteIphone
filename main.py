@@ -155,7 +155,7 @@ class Remote(QRunnable):
         address = allLines[random.randrange(
             0, len(allLines))].replace("\n", "")
 
-        dauSo = ['090', '093', '089', '070', '076', '077', '078', '079', '091', '094', '081', '082',
+        dauSo = ['090', '093', '070', '076', '077', '078', '079', '091', '094', '081', '082',
                  '084', '085', '088', '096', '097', '098', '086', '032', '034', '035', '036', '037', '038', '039']
         soDienThoai = dauSo[random.randrange(0, len(
             dauSo))] + str(random.randint(100, 999)) + str(random.randint(1000, 9999))
