@@ -778,8 +778,8 @@ color:white;</string>
       <widget class="QPushButton" name="pushButton_MoAppLZD">
        <property name="geometry">
         <rect>
-         <x>560</x>
-         <y>100</y>
+         <x>380</x>
+         <y>310</y>
          <width>131</width>
          <height>41</height>
         </rect>
@@ -877,11 +877,11 @@ color:white;</string>
         <string>Đăng Nhập Bằng FB</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ChiMoLink">
+      <widget class="QPushButton" name="pushButton_RunScript">
        <property name="geometry">
         <rect>
-         <x>560</x>
-         <y>230</y>
+         <x>590</x>
+         <y>110</y>
          <width>131</width>
          <height>51</height>
         </rect>
@@ -896,10 +896,10 @@ color:white;</string>
 
 border-width:5px;
 color:white;
-font-size:10px;</string>
+font-size:15px;</string>
        </property>
        <property name="text">
-        <string>Chỉ Mở Link, Không Click</string>
+        <string>Run Script</string>
        </property>
       </widget>
       <widget class="QWidget" name="widget_FakeAppLZD" native="true">
@@ -1054,8 +1054,8 @@ color:white;</string>
       <widget class="QPushButton" name="pushButton_ChiXoaInfo">
        <property name="geometry">
         <rect>
-         <x>560</x>
-         <y>40</y>
+         <x>380</x>
+         <y>250</y>
          <width>131</width>
          <height>41</height>
         </rect>
@@ -1079,8 +1079,8 @@ color:white;</string>
       <widget class="QPushButton" name="pushButton_MoAppLZDGoc">
        <property name="geometry">
         <rect>
-         <x>560</x>
-         <y>160</y>
+         <x>380</x>
+         <y>370</y>
          <width>131</width>
          <height>41</height>
         </rect>
@@ -1099,6 +1099,20 @@ color:white;</string>
        </property>
        <property name="text">
         <string>Mở App LZD Gốc</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_ListScript">
+       <property name="geometry">
+        <rect>
+         <x>550</x>
+         <y>40</y>
+         <width>211</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
       </widget>
       <zorder>label_6</zorder>
@@ -1129,12 +1143,13 @@ color:white;</string>
       <zorder>pushButton_PressHome</zorder>
       <zorder>pushButton_Respring</zorder>
       <zorder>pushButton_DangNhapBangFB</zorder>
-      <zorder>pushButton_ChiMoLink</zorder>
+      <zorder>pushButton_RunScript</zorder>
       <zorder>widget_FakeAppLZD</zorder>
       <zorder>pushButton_QuanHaDong</zorder>
       <zorder>pushButton_QuanHoangMai</zorder>
       <zorder>pushButton_ChiXoaInfo</zorder>
       <zorder>pushButton_MoAppLZDGoc</zorder>
+      <zorder>comboBox_ListScript</zorder>
      </widget>
      <zorder>widget</zorder>
      <zorder>pushButton_FullXoaInfo</zorder>

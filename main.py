@@ -7,6 +7,7 @@ import os
 from PyQt5.QtCore import QMutex, QObject, QRunnable, QThread, Qt, QThreadPool, pyqtSignal
 from PyQt5.QtWidgets import (
     QApplication,
+    QComboBox,
     QLabel,
     QMainWindow,
     QMenu,
@@ -96,7 +97,7 @@ class Remote(QRunnable):
         self.ipMay = ipMay
 
     def playScript(self):
-        response = requests.get(self.urlRemote,timeout=20)
+        response = requests.get(self.urlRemote, timeout=20)
         jsonData = response.json()
         print(jsonData["status"])
 
@@ -321,7 +322,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
 
         self.showListMay()
-        
+
         self.showCauHinh()
 
         # sshow list check imei
@@ -336,6 +337,20 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # cap nhat kho va account
         # self.capNhatKho()
+
+        # combo box list script
+        listScript = {
+            "Mua Ngay X5 - Xanh": "/RemoteWifi/TienIch-MuaNgayX5-1.js",
+            "Mua Ngay X5 - Đen": "/RemoteWifi/TienIch-MuaNgayX5-2.js",
+        }
+        
+        #self.comboBox_ListScript = QComboBox()
+        
+        for script in listScript:
+            print(script)
+            self.comboBox_ListScript.addItem(script)
+        
+        self.comboBox_ListScript.currentIndexChanged.connect(self.selectionchange)
 
         # tao menu
         listDevice = []
@@ -533,14 +548,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_DangNhapBangFB.setMenu(self.menuDangNhapByFB)
         self.add_menu(self.myListDevice, self.menuDangNhapByFB)
 
-        # add menu Chi Mo Link
-        self.menuOnlyMoLink = QMenu()
-        self.menuOnlyMoLink.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/TienIch-MoLink.js"))
-
-        self.pushButton_ChiMoLink.setMenu(self.menuOnlyMoLink)
-        self.add_menu(self.myListDevice, self.menuOnlyMoLink)
-
         # add menu Fake Version
         self.menuFakeVersionLZD = QMenu()
         self.menuFakeVersionLZD.triggered.connect(lambda x: self.apiPlayScript(
@@ -580,6 +587,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.pushButton_MoAppLZDGoc.setMenu(self.menuMoAppLZDGoc)
         self.add_menu(self.myListDevice, self.menuMoAppLZDGoc)
+        
+        # add menu Mo App LZD Goc
+        self.menuRunScript = QMenu()
+        self.menuRunScript.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScript[self.comboBox_ListScript.currentText()]))
+
+        self.pushButton_RunScript.setMenu(self.menuRunScript)
+        self.add_menu(self.myListDevice, self.menuRunScript)
 
         # pushButton_ThemDuLieu
         self.pushButton_ThemDuLieu.clicked.connect(self.ThemDuLieu)
@@ -622,9 +637,18 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_Create1000Imei.clicked.connect(self.create1000Imei)
 
         self.pushButton_LocImei.clicked.connect(self.runLocImei)
-        
-        #luu cau hinh fake
+
+        # luu cau hinh fake
         self.pushButton_LuuCauHinhFake.clicked.connect(self.luuCauHinhFake)
+
+
+    def selectionchange(self,i):
+        print ("Items in the list are :")
+		
+        for count in range(self.comboBox_ListScript.count()):
+            print (self.comboBox_ListScript.itemText(count))
+        print ("Current index",i,"selection changed ",self.comboBox_ListScript.currentText())
+
 
     def checkSelectAcc(self, selected, deselected):
 
@@ -644,8 +668,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             data = line.strip()
 
             self.myListDevice.append(data)
-
-        
 
     def add_menu(self, data, menu_obj):
         if isinstance(data, dict):
@@ -672,9 +694,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             row_number = self.tableWidget_IPMay.rowCount()
             self.tableWidget_IPMay.insertRow(row_number)
-            
-            tenMay = "Máy " + listDeviceDict[str(listDevice[i])]            
-            
+
+            tenMay = "Máy " + listDeviceDict[str(listDevice[i])]
+
             chkBoxItem = QtWidgets.QTableWidgetItem(str(listDevice[i]))
             chkBoxItem.setText(str(tenMay))
             chkBoxItem.setFlags(
@@ -682,8 +704,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             chkBoxItem.setCheckState(QtCore.Qt.Unchecked)
             self.tableWidget_IPMay.setItem(row_number, 0, chkBoxItem)
             self.tableWidget_IPMay.setItem(
-                    row_number, 1, QtWidgets.QTableWidgetItem(str(listDevice[i])))
-       
+                row_number, 1, QtWidgets.QTableWidgetItem(str(listDevice[i])))
 
     def chuotPhaiShowListMay(self, event):
         contextMenu = QtWidgets.QMenu(self)
@@ -719,6 +740,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.capNhatKho()
 
     def apiPlayScript(self, ip, path):
+        print(path)
 
         if (ip != "START" and ip != "STOP"):
             linkURL = "http://" + ip + ":8080/control/start_playing?path=" + path
@@ -1016,8 +1038,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 urlRemote="", scriptKho=contentData[i], ipMay="")
             pool.start(runnableRemote.themDuLieuKhoDatHang)
 
-
-
         self.capNhatKho()
         self.showDataKhoDatHang()
 
@@ -1042,7 +1062,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             runnableRemote = Remote(
                 urlRemote="", scriptKho=contentData[i], ipMay="")
             pool.start(runnableRemote.capNhatLink)
-
 
         msg = QMessageBox()
         msg.setText("Cập Nhật Link Đặt Hàng Thành Công")
@@ -1205,21 +1224,20 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 row_number, 1, QtWidgets.QTableWidgetItem(str(result["ngayKichHoat"])))
             self.tableWidget_CheckImei.setItem(
                 row_number, 2, QtWidgets.QTableWidgetItem(str(result["content"])))
-            
-            
+
     def luuCauHinhFake(self):
-        
+
         versionApp = self.lineEdit_InputFakeVersionApp.text()
         print(versionApp)
-        
+
         checkFakeVersionAppRandom = self.checkBox_FakeIos.isChecked()
         print(checkFakeVersionAppRandom)
-        
+
         if (checkFakeVersionAppRandom == True):
             isFakeAppRandom = 'false'
         elif (checkFakeVersionAppRandom == False):
             isFakeAppRandom = 'true'
-            
+
         print(isFakeAppRandom)
         dataPost = {
             "appVersion": versionApp,
@@ -1228,16 +1246,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         }
 
         # print(dataPost)
-        response = requests.post("http://lzd420.me/API/setCauHinhFake", dataPost)
+        response = requests.post(
+            "http://lzd420.me/API/setCauHinhFake", dataPost)
         print(response.json())
-        
+
     def showCauHinh(self):
-        apiViewCauHinh= "https://lzd420.me/api/getCauHinhFake&owner=admin"
-        response = requests.get(apiViewCauHinh,timeout=20)
+        apiViewCauHinh = "https://lzd420.me/api/getCauHinhFake&owner=admin"
+        response = requests.get(apiViewCauHinh, timeout=20)
         jsonData = response.json()[0]
         self.lineEdit_InputFakeVersionApp.setText(str(jsonData["appVersion"]))
-    
-        
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
