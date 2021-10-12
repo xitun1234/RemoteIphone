@@ -340,8 +340,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # combo box list script
         listScript = {
+            "ĐỔI IP 4G": "/RemoteWifi/TienIch-DoiIP4G.js",
             "Mua Ngay X5 - Xanh": "/RemoteWifi/TienIch-MuaNgayX5-1.js",
             "Mua Ngay X5 - Đen": "/RemoteWifi/TienIch-MuaNgayX5-2.js",
+            "Sửa Địa Chỉ Về Quận 10": "/RemoteWifi/TienIch-SuaDiaChiVeQuan10.js",
         }
         
         #self.comboBox_ListScript = QComboBox()
@@ -567,7 +569,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # add menu Dia Chi Hoang Mai
         self.menuDiaChiHoangMai = QMenu()
         self.menuDiaChiHoangMai.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/ZD22-DiaChiQuan10.js"))
+            x.text(), "/RemoteWifi/LZD22-DiaChiQuan10.js"))
 
         self.pushButton_QuanHoangMai.setMenu(self.menuDiaChiHoangMai)
         self.add_menu(self.myListDevice, self.menuDiaChiHoangMai)
