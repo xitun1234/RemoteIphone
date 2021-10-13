@@ -44,6 +44,7 @@ listDeviceDict = {
     "192.168.3.37": "17",
     "192.168.3.38": "18",
     "192.168.3.39": "19",
+    "192.168.3.40": "20",
 }
 
 
@@ -86,6 +87,7 @@ class Remote(QRunnable):
         "192.168.3.37": "17",
         "192.168.3.38": "18",
         "192.168.3.39": "19",
+        "192.168.3.40": "20",
     }
 
     def __init__(self, urlRemote, scriptKho, ipMay, parent=None):
@@ -95,6 +97,7 @@ class Remote(QRunnable):
         self.urlRemote = urlRemote
         self.scriptKho = scriptKho
         self.ipMay = ipMay
+        self.mutex = QMutex()
 
     def playScript(self):
         response = requests.get(self.urlRemote, timeout=20)
@@ -181,10 +184,11 @@ class Remote(QRunnable):
         print(response.json())
 
     def napAcc(self):
-
+        self.mutex.lock()
+        
         linkAPI = "http://lzd420.me/api/getKhoDatHang&deviceName=" + \
             self.listDeviceDict[self.ipMay] + "&owner=admin"
-        response = requests.get(linkAPI)
+        response = requests.get(linkAPI,timeout=10)
         jsonData = response.json()
         if (jsonData["status"] == 'success'):
 
@@ -215,6 +219,8 @@ class Remote(QRunnable):
                 "noiDung": "Đã Hết Acc Trong Kho"
             }
             self.signals.result.emit(result)
+        
+        self.mutex.unlock()
 
     def capNhatLink(self):
         data = self.scriptKho.split("|")
@@ -335,24 +341,196 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setContextMenuPolicy(Qt.CustomContextMenu)
         self.customContextMenuRequested.connect(self.chuotPhaiShowListMay)
 
-        # cap nhat kho va account
-        # self.capNhatKho()
+        ##label success
+        self.label_KetQuaChay.setText(str(""))
+
+        ######## List Script #####################
+        # I. Chuc Nang Reg Acc
+        # 1. Xoa Info
+        listScriptXoaInfo = {
+            "Full Xóa Info": "/RemoteWifi/Part1-RegAccXoaInfo.js",
+            "Chỉ Xóa Info": "/RemoteWifi/TienIch-XoaInfo.js",
+        }
+
+        for script in listScriptXoaInfo:
+            self.comboBox_XoaInfo.addItem(script)
+
+        # 2. Dang Nhap Bang FB
+        listScriptDangNhapBangFB = {
+            "Đăng Nhập Bằng FB": "/RemoteWifi/Part12-DangNhapQuaFB.js",
+        }
+
+        for script in listScriptDangNhapBangFB:
+            self.comboBox_DangNhapBangFB.addItem(script)
+
+        # 3. Add Mail & Lay Lai Mat Khau
+        listScriptAddMail = {
+            "Full Add Mail & Lấy Lại MK": "/RemoteWifi/Part2-AddMail.js",
+            "Lấy Lại Mật Khẩu": "/RemoteWifi/Part3-LayLaiMatKhau.js",
+            "Đổi Mật Khẩu": "/RemoteWifi/LZD13-DoiMatKhauLZD.js",
+            "Đổi Tên Tài Khoản": "/RemoteWifi/LZD12-DoiTenTaiKhoan.js",
+        }
+
+        for script in listScriptAddMail:
+            self.comboBox_AddMail.addItem(script)
+
+        # II. Cac Chuc Nang Dat Hang
+        # 1. Mo App Lazada
+        listScriptMoApp = {
+            "Mở App Fake": "/RemoteWifi/TienIch-MoAppLZDFake.js",
+            "Mở App Gốc": "/RemoteWifi/TienIch-MoAppLazadaGoc.js",
+        }
+
+        for script in listScriptMoApp:
+            self.comboBox_MoAppLZD.addItem(script)
+
+        # 2. Dang Nhap Lazada
+        listScriptDangNhapLZD = {
+            "Full Đăng Nhập": "/RemoteWifi/LZD1-DangNhapBangMatKhau.js",
+            "Chỉ Đăng Nhập": "/RemoteWifi/LZD11-ChiDangNhapLZD.js",
+        }
+
+        for script in listScriptDangNhapLZD:
+            self.comboBox_DangNhapLZD.addItem(script)
+
+        # 3. Mo Link
+        listScriptMoLink = {
+            "Mở Link Sản Phẩm": "/RemoteWifi/LZD3-MoLinkNhanh.js",
+        }
+
+        for script in listScriptMoLink:
+            self.comboBox_MoLink.addItem(script)
+
+        # 4. Tao Dia Chi
+        listScriptTaoDiaChi = {
+            "Địa Chỉ Thường Tín": "/RemoteWifi/LZD2-TaoDiaChi.js",
+            "Địa Chỉ Long Biên": "/RemoteWifi/LZD22-DiaChiLongBien.js",
+            "Địa Chỉ Hà Đông": "/RemoteWifi/LZD22-DiaChiHaDong.js",
+            "Địa Chỉ Hoàng Mai": "/RemoteWifi/LZD22-DiaChiQuan10.js",
+            "Địa Chỉ Quận 10": "/RemoteWifi/LZD22-DiaChiQuan10.js",
+        }
+
+        for script in listScriptTaoDiaChi:
+            self.comboBox_TaoDiaChi.addItem(script)
+
+        # III. Cac Tien Ich
+        # 1. Tien Ich
+        listScriptTienIch = {
+            "Đổi IP 4G": "/RemoteWifi/TienIch-DoiIP4G.js",
+            "Respring": "/RemoteWifi/TienIch-Respring.js",
+            "Press Home": "/RemoteWifi/TienIch-PressHome.js",
+            "Unlock Screen": "/RemoteWifi/TienIch-UnlockScreen.js",
+            "Lock Screen": "/RemoteWifi/TienIch-LockScreen.js",
+        }
+
+        for script in listScriptTienIch:
+            self.comboBox_TienIch.addItem(script)
+
+        # 2. Luu & Restore RRS
+        listScriptRRS = {
+            "Lưu RRS Acc": "/RemoteWifi/XoaInfo-LuuRRS.js",
+            "Lưu RRS Khung 30K": "/RemoteWifi/XoaInfo-LuuRRSRegAcc.js",
+            "Restore RRS": "/RemoteWifi/XoaInfo-Restore.js",
+        }
+
+        for script in listScriptRRS:
+            self.comboBox_RRS.addItem(script)
 
         # combo box list script
         listScript = {
-            "ĐỔI IP 4G": "/RemoteWifi/TienIch-DoiIP4G.js",
             "Mua Ngay X5 - Xanh": "/RemoteWifi/TienIch-MuaNgayX5-1.js",
             "Mua Ngay X5 - Đen": "/RemoteWifi/TienIch-MuaNgayX5-2.js",
             "Sửa Địa Chỉ Về Quận 10": "/RemoteWifi/TienIch-SuaDiaChiVeQuan10.js",
         }
-        
-        #self.comboBox_ListScript = QComboBox()
-        
+
         for script in listScript:
             print(script)
             self.comboBox_ListScript.addItem(script)
+
+        # button cac chuc nang
+        # I
+        # 1. Xoa Info
+        self.menuXoaInfo = QMenu()
+        self.menuXoaInfo.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptXoaInfo[self.comboBox_XoaInfo.currentText()]))
+
+        self.pushButton_FullXoaInfo.setMenu(self.menuXoaInfo)
+        self.add_menu(self.myListDevice, self.menuXoaInfo)
+
+        # 2. Đăng nhập bằng fb
+        self.menuDangNhapFB = QMenu()
+        self.menuDangNhapFB.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptDangNhapBangFB[self.comboBox_DangNhapBangFB.currentText()]))
+
+        self.pushButton_DangNhapBangFB.setMenu(self.menuDangNhapFB)
+        self.add_menu(self.myListDevice, self.menuDangNhapFB)
+
+        # 3. Add mail & lay lai mat kahu
+        self.menuAddMail = QMenu()
+        self.menuAddMail.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptAddMail[self.comboBox_AddMail.currentText()]))
+
+        self.pushButton_FullAddMail.setMenu(self.menuAddMail)
+        self.add_menu(self.myListDevice, self.menuAddMail)
+
+        # II. Cac chuc nang dat hang
+        # 1. Mo App LZD
+        self.menuMoAppLZD = QMenu()
+        self.menuMoAppLZD.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptMoApp[self.comboBox_MoAppLZD.currentText()]))
+
+        self.pushButton_MoAppLZD.setMenu(self.menuMoAppLZD)
+        self.add_menu(self.myListDevice, self.menuMoAppLZD)
+
+        # 2. Dang Nhap LZD
+        self.menuDangNhapLZD = QMenu()
+        self.menuDangNhapLZD.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptDangNhapLZD[self.comboBox_DangNhapLZD.currentText()]))
+
+        self.pushButton_DangNhapLZD.setMenu(self.menuDangNhapLZD)
+        self.add_menu(self.myListDevice, self.menuDangNhapLZD)
+
+        # 3. Mo Link LZD
+        self.menuMoLink = QMenu()
+        self.menuMoLink.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptMoLink[self.comboBox_MoLink.currentText()]))
+
+        self.pushButton_MoLink.setMenu(self.menuMoLink)
+        self.add_menu(self.myListDevice, self.menuMoLink)
+
+        # 4. Tao Dia Chi
+        self.menuTaoDiaChi = QMenu()
+        self.menuTaoDiaChi.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptTaoDiaChi[self.comboBox_TaoDiaChi.currentText()]))
+
+        self.pushButton_TaoDiaChi.setMenu(self.menuTaoDiaChi)
+        self.add_menu(self.myListDevice, self.menuTaoDiaChi)
         
-        self.comboBox_ListScript.currentIndexChanged.connect(self.selectionchange)
+        
+        ### III. Cac chuc nang tien ich
+        # 1. Tien Ich
+        self.menuTienIch = QMenu()
+        self.menuTienIch.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptTienIch[self.comboBox_TienIch.currentText()]))
+
+        self.pushButton_TienIch.setMenu(self.menuTienIch)
+        self.add_menu(self.myListDevice, self.menuTienIch)
+        
+        # 2. RRS Xoa Info
+        self.menuRRS = QMenu()
+        self.menuRRS.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptRRS[self.comboBox_RRS.currentText()]))
+
+        self.pushButton_RRS.setMenu(self.menuRRS)
+        self.add_menu(self.myListDevice, self.menuRRS)
+        
+        # 3. Cac chuc nang phu
+        self.menuChucNangPhu = QMenu()
+        self.menuChucNangPhu.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScript[self.comboBox_ListScript.currentText()]))
+
+        self.pushButton_RunScript.setMenu(self.menuChucNangPhu)
+        self.add_menu(self.myListDevice, self.menuChucNangPhu)        
 
         # tao menu
         listDevice = []
@@ -366,189 +544,21 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         listDevice.append({'STOP': menuStop})
         print(listDevice)
 
-        # add menu Full AppManager
-        self.menuAppManager = QMenu()
-        self.menuAppManager.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/Part1-RegAccAppManager.js"))
-
-        # add menu Full Xoa Info
-        self.menu = QMenu()
-        self.menu.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/Part1-RegAccXoaInfo.js"))
-
-        # add menu Add Mail
-        self.menuAddMail = QMenu()
-        self.menuAddMail.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/Part2-AddMail.js"))
-
-        # add menu Add Mail
-        self.menuAddMailLoi = QMenu()
-        self.menuAddMailLoi.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/Part5-LoiAddMail.js"))
-
-        # add menu Lay Lai Mat Khau
-        self.menuLayLaiMatKhau = QMenu()
-        self.menuLayLaiMatKhau.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/Part3-LayLaiMatKhau.js"))
-
-        # add menu Dang Nhap LZD
-        self.menuDangNhapLZD = QMenu()
-        self.menuDangNhapLZD.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/LZD1-DangNhapBangMatKhau.js"))
-
-        # add menu MoLinkDeal 0D
-        self.menuChiDangNhapLZD = QMenu()
-        self.menuChiDangNhapLZD.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/LZD11-ChiDangNhapLZD.js"))
-
-        # add menu LuuRRS
-        self.menuLuuRRS = QMenu()
-        self.menuLuuRRS.triggered.connect(
-            lambda x: self.apiPlayScript(x.text(), "/RemoteWifi/XoaInfo-LuuRRS.js"))
-
-        # add menu RestoreRRS
-        self.menuRestoreRRS = QMenu()
-        self.menuRestoreRRS.triggered.connect(
-            lambda x: self.apiPlayScript(x.text(), "/RemoteWifi/XoaInfo-Restore.js"))
-
-        # add menu Dia Chi Thuong Tin
-        self.menuDiaChiThuongTin = QMenu()
-        self.menuDiaChiThuongTin.triggered.connect(
-            lambda x: self.apiPlayScript(x.text(), "/RemoteWifi/LZD2-TaoDiaChi.js"))
-
-        # add menu dia chi tan phu
-        self.menuDiaChiTanPhu = QMenu()
-        self.menuDiaChiTanPhu.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/LZD22-DiaChiLongBien.js"))
-
-        # add menu mo link san pham
-        self.menuMoLinkSanPham = QMenu()
-        self.menuMoLinkSanPham.triggered.connect(
-            lambda x: self.apiPlayScript(x.text(), "/RemoteWifi/LZD3-MoLinkNhanh.js"))
-
         # add menu click dat hang
         self.menuClickDatHang = QMenu()
         self.menuClickDatHang.triggered.connect(
             lambda x: self.playScriptDatHang(x.text(), "/RemoteWifi/LZD4-ClickDatHang.js"))
 
-        # add menu chi dang nhap FB
-        self.menuDangNhapFB = QMenu()
-        self.menuDangNhapFB.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/Part12-DangNhapQuaFB.js"))
-
-        # doi ten tai khoan
-        self.menuDoiTenTaiKhoan = QMenu()
-        self.menuDoiTenTaiKhoan.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/LZD12-DoiTenTaiKhoan.js"))
-
-        # doi mat khau
-        self.menuDoiMatKhauLZD = QMenu()
-        self.menuDoiMatKhauLZD.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/LZD13-DoiMatKhauLZD.js"))
-
         # add menu Nạp Acc Kho LZD
         self.menuNapAcc = QMenu()
         self.menuNapAcc.triggered.connect(lambda x: self.napAccLZD(x.text()))
 
-        # add menu Test Add 30K
-        self.menuThemGioHang = QMenu()
-        self.menuThemGioHang.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/LZD21-ThemGioHang.js"))
-
-        # add menu RRS Reg Acc
-        self.menuRRSRegAcc = QMenu()
-        self.menuRRSRegAcc.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/XoaInfo-LuuRRSRegAcc.js"))
-
-        # add menu Lock Screen
-        self.menuLockScreen = QMenu()
-        self.menuLockScreen.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/TienIch-LockScreen.js"))
-
-        # add menu Unlock Screen
-        self.menuUnlockScreen = QMenu()
-        self.menuUnlockScreen.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/TienIch-UnlockScreen.js"))
-
-        self.pushButton_FullAppManager.setMenu(self.menuAppManager)
-        self.pushButton_FullXoaInfo.setMenu(self.menu)
-        self.pushButton_FullAddMail.setMenu(self.menuAddMail)
-        # self.pushButton_LoiAddMail.setMenu(self.menuAddMailLoi)
-        self.pushButton_FullAddMail_2.setMenu(self.menuLayLaiMatKhau)
-        self.pushButton_DangNhapLZD.setMenu(self.menuDangNhapLZD)
-        self.pushButton_ChiDangNhapLZD.setMenu(self.menuChiDangNhapLZD)
-        self.pushButton_LuuRRS.setMenu(self.menuLuuRRS)
-        self.pushButton_RestoreRRS.setMenu(self.menuRestoreRRS)
-        self.pushButton_DiaChiThuongTin.setMenu(self.menuDiaChiThuongTin)
-        self.pushButton_DiaChiTanPhu.setMenu(self.menuDiaChiTanPhu)
-        self.pushButton_MoLinkNhanh.setMenu(self.menuMoLinkSanPham)
         self.pushButton_ClickDatHang.setMenu(self.menuClickDatHang)
-        # self.pushButton_DangNhapFacebook.setMenu(self.menuDangNhapFB)
-        self.pushButton_NapAccVaoMay.setMenu(self.menuNapAcc)
         self.pushButton_NapAccVaoMay_2.setMenu(self.menuNapAcc)
-        self.pushButton_DoiTenTaiKhoan.setMenu(self.menuDoiTenTaiKhoan)
-        self.pushButton_DoiMatKhauLZD.setMenu(self.menuDoiMatKhauLZD)
-        self.pushButton_ThemGioHang.setMenu(self.menuThemGioHang)
-        self.pushButton_LuuRRSRegAcc.setMenu(self.menuRRSRegAcc)
-        self.pushButton_LockScreen.setMenu(self.menuLockScreen)
-        self.pushButton_UnlockScreen.setMenu(self.menuUnlockScreen)
 
         ########## ADD MENU ############
-        self.add_menu(self.myListDevice, self.menuAppManager)
-        self.add_menu(self.myListDevice, self.menu)
-        self.add_menu(self.myListDevice, self.menuAddMail)
-        self.add_menu(self.myListDevice, self.menuAddMailLoi)
-        self.add_menu(self.myListDevice, self.menuLayLaiMatKhau)
-        self.add_menu(self.myListDevice, self.menuDangNhapLZD)
-        self.add_menu(self.myListDevice, self.menuChiDangNhapLZD)
-
-        self.add_menu(self.myListDevice, self.menuDiaChiThuongTin)
-        self.add_menu(self.myListDevice, self.menuDiaChiTanPhu)
-        self.add_menu(self.myListDevice, self.menuMoLinkSanPham)
         self.add_menu(self.myListDevice, self.menuClickDatHang)
-        self.add_menu(self.myListDevice, self.menuDangNhapFB)
         self.add_menu(self.myListDevice, self.menuNapAcc)
-        self.add_menu(self.myListDevice, self.menuLuuRRS)
-        self.add_menu(self.myListDevice, self.menuRestoreRRS)
-        self.add_menu(self.myListDevice, self.menuDoiTenTaiKhoan)
-        self.add_menu(self.myListDevice, self.menuDoiMatKhauLZD)
-        self.add_menu(self.myListDevice, self.menuThemGioHang)
-        self.add_menu(self.myListDevice, self.menuRRSRegAcc)
-        self.add_menu(self.myListDevice, self.menuLockScreen)
-        self.add_menu(self.myListDevice, self.menuUnlockScreen)
-
-        # add menu moi
-        # add menu Menu Press Home
-        self.menuPressHome = QMenu()
-        self.menuPressHome.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/TienIch-PressHome.js"))
-
-        self.pushButton_PressHome.setMenu(self.menuPressHome)
-        self.add_menu(self.myListDevice, self.menuPressHome)
-
-        # add menu Menu Mo App Lzd
-        self.menuMoAppLZD = QMenu()
-        self.menuMoAppLZD.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/TienIch-MoAppLZDFake.js"))
-
-        self.pushButton_MoAppLZD.setMenu(self.menuMoAppLZD)
-        self.add_menu(self.myListDevice, self.menuMoAppLZD)
-
-        # add menu Menu Respring
-        self.menuRespring = QMenu()
-        self.menuRespring.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/TienIch-Respring.js"))
-
-        self.pushButton_Respring.setMenu(self.menuRespring)
-        self.add_menu(self.myListDevice, self.menuRespring)
-
-        # add menu Dang Nhap Bang FB
-        self.menuDangNhapByFB = QMenu()
-        self.menuDangNhapByFB.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/Part12-DangNhapQuaFB.js"))
-
-        self.pushButton_DangNhapBangFB.setMenu(self.menuDangNhapByFB)
-        self.add_menu(self.myListDevice, self.menuDangNhapByFB)
 
         # add menu Fake Version
         self.menuFakeVersionLZD = QMenu()
@@ -558,58 +568,24 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_FakeVersionApp.setMenu(self.menuFakeVersionLZD)
         self.add_menu(self.myListDevice, self.menuFakeVersionLZD)
 
-        # add menu Dia Chi Ha Dong
-        self.menuDiaChiHaDong = QMenu()
-        self.menuDiaChiHaDong.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/LZD22-DiaChiHaDong.js"))
+        # Fake ten app
+        self.menuFakeAll = QMenu()
+        self.menuFakeAll.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), "/RemoteWifi/TienIch-FakeAll.js"))
 
-        self.pushButton_QuanHaDong.setMenu(self.menuDiaChiHaDong)
-        self.add_menu(self.myListDevice, self.menuDiaChiHaDong)
+        self.pushButton_FakeTenApp.setMenu(self.menuFakeAll)
+        self.add_menu(self.myListDevice, self.menuFakeAll)
 
-        # add menu Dia Chi Hoang Mai
-        self.menuDiaChiHoangMai = QMenu()
-        self.menuDiaChiHoangMai.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/LZD22-DiaChiQuan10.js"))
-
-        self.pushButton_QuanHoangMai.setMenu(self.menuDiaChiHoangMai)
-        self.add_menu(self.myListDevice, self.menuDiaChiHoangMai)
-
-        # add menu Xoa Info
-        self.menuChiXoaInfo = QMenu()
-        self.menuChiXoaInfo.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/TienIch-XoaInfo.js"))
-
-        self.pushButton_ChiXoaInfo.setMenu(self.menuChiXoaInfo)
-        self.add_menu(self.myListDevice, self.menuChiXoaInfo)
-
-        # add menu Mo App LZD Goc
-        self.menuMoAppLZDGoc = QMenu()
-        self.menuMoAppLZDGoc.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), "/RemoteWifi/TienIch-MoAppLazadaGoc.js"))
-
-        self.pushButton_MoAppLZDGoc.setMenu(self.menuMoAppLZDGoc)
-        self.add_menu(self.myListDevice, self.menuMoAppLZDGoc)
-        
-        # add menu Mo App LZD Goc
-        self.menuRunScript = QMenu()
-        self.menuRunScript.triggered.connect(lambda x: self.apiPlayScript(
-            x.text(), listScript[self.comboBox_ListScript.currentText()]))
-
-        self.pushButton_RunScript.setMenu(self.menuRunScript)
-        self.add_menu(self.myListDevice, self.menuRunScript)
 
         # pushButton_ThemDuLieu
         self.pushButton_ThemDuLieu.clicked.connect(self.ThemDuLieu)
 
         self.pushButton_ResetKho.clicked.connect(self.resetKho)
 
-        # self.pushButton_ThemAccount.clicked.connect(self.themDuLieuAccount)
-
         # copy du lieu
         self.pushButton_CopyAccLZD.clicked.connect(self.getAccountLZD)
         self.pushButton_ExcelAccLZD.clicked.connect(self.xuatExcelAccLZD)
         self.pushButton_ExcelListImei.clicked.connect(self.xuatExcelListImei)
-        # self.getAccountLZD(0,0)
 
         self.pushButton_ThemDuLieuKhoLZD.clicked.connect(
             self.ThemDuLieuVaoKhoDatHang)
@@ -643,14 +619,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # luu cau hinh fake
         self.pushButton_LuuCauHinhFake.clicked.connect(self.luuCauHinhFake)
 
+    def selectionchange(self, i):
+        print("Items in the list are :")
 
-    def selectionchange(self,i):
-        print ("Items in the list are :")
-		
         for count in range(self.comboBox_ListScript.count()):
-            print (self.comboBox_ListScript.itemText(count))
-        print ("Current index",i,"selection changed ",self.comboBox_ListScript.currentText())
-
+            print(self.comboBox_ListScript.itemText(count))
+        print("Current index", i, "selection changed ",
+              self.comboBox_ListScript.currentText())
 
     def checkSelectAcc(self, selected, deselected):
 
@@ -793,6 +768,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 time.sleep(0.5)
 
     def napAccLZD(self, ip):
+        
+        self.label_KetQuaChay.setText(str("Đang Nạp Acc"))
+        
         if (ip != "START" and ip != "STOP"):
 
             self.napAccNew(ip)
@@ -814,9 +792,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 print(device)
                 self.napAccNew(device)
 
-        msg = QMessageBox()
-        msg.setText("Nạp Acc Thành Công")
-        x = msg.exec_()
+        self.label_KetQuaChay.setText(str("Nạp Acc Thành Công"))
 
         self.capNhatKho()
         self.showDataKhoDatHang()
@@ -828,9 +804,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             response = requests.get(linkURL, timeout=20)
 
-            # print(response.json())
 
-            # self.capNhatKho()
         elif (ip == "START"):
 
             checkListDevice = []
@@ -848,7 +822,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 print(response.json())
                 time.sleep(3)
 
-            # self.capNhatKho()
         elif (ip == "STOP"):
             checkListDevice = []
 
@@ -864,7 +837,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
                 print(response.json())
 
-            # self.capNhatKho()
+
 
     def printSignal(self, s):
         if (s["status"] == False):
@@ -1230,22 +1203,24 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def luuCauHinhFake(self):
 
         versionApp = self.lineEdit_InputFakeVersionApp.text()
-        print(versionApp)
 
         checkFakeVersionAppRandom = self.checkBox_FakeIos.isChecked()
-        print(checkFakeVersionAppRandom)
+        
+        tenApp = self.lineEdit_InputFakeTenApp.text()
 
         if (checkFakeVersionAppRandom == True):
             isFakeAppRandom = 'false'
         elif (checkFakeVersionAppRandom == False):
             isFakeAppRandom = 'true'
 
-        print(isFakeAppRandom)
+
         dataPost = {
             "appVersion": versionApp,
             "isFakeAppRandom": isFakeAppRandom,
-            "owner": "admin"
+            "CFBundleIdentifier": tenApp,
+            "owner": "admin",
         }
+        print(dataPost)
 
         # print(dataPost)
         response = requests.post(
@@ -1257,6 +1232,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         response = requests.get(apiViewCauHinh, timeout=20)
         jsonData = response.json()[0]
         self.lineEdit_InputFakeVersionApp.setText(str(jsonData["appVersion"]))
+        self.lineEdit_InputFakeTenApp.setText(str(jsonData["CFBundleIdentifier"]))
 
 
 if __name__ == "__main__":

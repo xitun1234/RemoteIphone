@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1109</width>
-    <height>708</height>
+    <width>1051</width>
+    <height>649</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1111</width>
-      <height>741</height>
+      <width>1051</width>
+      <height>651</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -33,10 +33,10 @@
      <widget class="QPushButton" name="pushButton_FullXoaInfo">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>70</y>
-        <width>131</width>
-        <height>41</height>
+        <x>30</x>
+        <y>110</y>
+        <width>151</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="font">
@@ -52,16 +52,16 @@ border-width:2px;
 color:white;</string>
       </property>
       <property name="text">
-       <string>1. Xóa Info</string>
+       <string>Full Xóa Info</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_FullAddMail">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>210</y>
-        <width>131</width>
-        <height>41</height>
+        <x>30</x>
+        <y>260</y>
+        <width>151</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="font">
@@ -77,16 +77,66 @@ border-width:2px;
 color:white;</string>
       </property>
       <property name="text">
-       <string>3. Add Mail</string>
+       <string>Add Mail &amp; Lấy Lại MK</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_FullAddMail_2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>340</y>
+        <width>151</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #407294;
+
+border-width:2px;
+color:white;</string>
+      </property>
+      <property name="text">
+       <string>Lấy Lại Mật Khẩu</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_FullAppManager">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>40</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #407294;
+
+border-width:2px;
+color:white;</string>
+      </property>
+      <property name="text">
+       <string>Full Apps Manager</string>
       </property>
      </widget>
      <widget class="QTableWidget" name="tableWidget_IPMay">
       <property name="geometry">
        <rect>
-        <x>840</x>
+        <x>780</x>
         <y>0</y>
-        <width>261</width>
-        <height>481</height>
+        <width>251</width>
+        <height>311</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -108,18 +158,44 @@ color:white;</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1101</width>
-        <height>681</height>
+        <width>1041</width>
+        <height>631</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color:	#536878</string>
       </property>
+      <widget class="QPushButton" name="pushButton_ChiDangNhapLZD">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>100</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #f7347a;
+
+border-width:2px;
+
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Chỉ Đăng Nhập LZD</string>
+       </property>
+      </widget>
       <widget class="QLabel" name="label_Kho">
        <property name="geometry">
         <rect>
-         <x>840</x>
-         <y>500</y>
+         <x>780</x>
+         <y>330</y>
          <width>181</width>
          <height>31</height>
         </rect>
@@ -141,8 +217,8 @@ color:white;</string>
       <widget class="QLabel" name="label_6">
        <property name="geometry">
         <rect>
-         <x>840</x>
-         <y>470</y>
+         <x>780</x>
+         <y>300</y>
          <width>261</width>
          <height>31</height>
         </rect>
@@ -164,8 +240,8 @@ color:white;</string>
       <widget class="QLabel" name="label_ResultKhoDuLieu">
        <property name="geometry">
         <rect>
-         <x>1000</x>
-         <y>500</y>
+         <x>960</x>
+         <y>330</y>
          <width>71</width>
          <height>31</height>
         </rect>
@@ -190,8 +266,8 @@ color:white;</string>
       <widget class="QLabel" name="label_Kho_2">
        <property name="geometry">
         <rect>
-         <x>840</x>
-         <y>540</y>
+         <x>780</x>
+         <y>370</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -213,8 +289,8 @@ color:white;</string>
       <widget class="QLabel" name="label_ResultAccLazada">
        <property name="geometry">
         <rect>
-         <x>980</x>
-         <y>540</y>
+         <x>920</x>
+         <y>370</y>
          <width>111</width>
          <height>31</height>
         </rect>
@@ -236,23 +312,25 @@ color:white;</string>
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>180</x>
          <y>10</y>
-         <width>311</width>
+         <width>191</width>
          <height>31</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>-1</pointsize>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">color:white;
-font-size:15px;</string>
+</string>
        </property>
        <property name="text">
-        <string>I. CÁC CHỨC NĂNG REG ACC</string>
+        <string>Các chức năng Đặt Hàng</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -261,26 +339,25 @@ font-size:15px;</string>
       <widget class="QLabel" name="label">
        <property name="geometry">
         <rect>
-         <x>-10</x>
-         <y>50</y>
+         <x>10</x>
+         <y>10</y>
          <width>191</width>
          <height>31</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>-1</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
-         <italic>false</italic>
          <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color:#ff7373;
-font-size:15px;</string>
+        <string notr="true">color:white;
+</string>
        </property>
        <property name="text">
-        <string>1. Full &amp; Only Xóa Info</string>
+        <string>Các chức năng Reg Acc</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -289,8 +366,8 @@ font-size:15px;</string>
       <widget class="QLabel" name="label_Kho_3">
        <property name="geometry">
         <rect>
-         <x>840</x>
-         <y>580</y>
+         <x>780</x>
+         <y>410</y>
          <width>171</width>
          <height>31</height>
         </rect>
@@ -312,8 +389,8 @@ font-size:15px;</string>
       <widget class="QLabel" name="label_ResultKhoDuLieuAccLZD">
        <property name="geometry">
         <rect>
-         <x>1010</x>
-         <y>580</y>
+         <x>950</x>
+         <y>410</y>
          <width>71</width>
          <height>31</height>
         </rect>
@@ -338,9 +415,9 @@ font-size:15px;</string>
       <widget class="QPushButton" name="pushButton_ClickDatHang">
        <property name="geometry">
         <rect>
-         <x>260</x>
-         <y>590</y>
-         <width>131</width>
+         <x>210</x>
+         <y>520</y>
+         <width>141</width>
          <height>41</height>
         </rect>
        </property>
@@ -358,15 +435,118 @@ border-width:2px;
 color:white;</string>
        </property>
        <property name="text">
-        <string>5. Click Đặt Hàng</string>
+        <string>Click Đặt Hàng</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_MoLinkNhanh">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>400</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #f7347a;
+
+border-width:2px;
+
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Mở Link Sản Phẩm</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_DiaChiTanPhu">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>220</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #f7347a;
+
+border-width:2px;
+
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Địa Chỉ Long Biên</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_DiaChiThuongTin">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>160</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #f7347a;
+
+border-width:2px;
+
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Địa Chỉ Thường Tín</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_LuuRRS">
+       <property name="geometry">
+        <rect>
+         <x>380</x>
+         <y>40</y>
+         <width>131</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #ff7373;
+
+border-width:5px;
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Lưu RRS</string>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_DangNhapLZD">
        <property name="geometry">
         <rect>
-         <x>260</x>
-         <y>390</y>
-         <width>131</width>
+         <x>210</x>
+         <y>40</y>
+         <width>141</width>
          <height>41</height>
         </rect>
        </property>
@@ -384,15 +564,40 @@ border-width:2px;
 color:white;</string>
        </property>
        <property name="text">
-        <string>2. Đăng Nhập LZD</string>
+        <string>Full Đăng nhập LZD</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_RestoreRRS">
+       <property name="geometry">
+        <rect>
+         <x>380</x>
+         <y>180</y>
+         <width>131</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #ff7373;
+
+border-width:5px;
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Restore RRS</string>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_NapAccVaoMay_2">
        <property name="geometry">
         <rect>
-         <x>460</x>
-         <y>310</y>
-         <width>191</width>
+         <x>590</x>
+         <y>320</y>
+         <width>171</width>
          <height>51</height>
         </rect>
        </property>
@@ -414,12 +619,12 @@ font-size:15px;</string>
         <string>Nạp Acc</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_MoAppLZD">
+      <widget class="QPushButton" name="pushButton_DoiTenTaiKhoan">
        <property name="geometry">
         <rect>
-         <x>260</x>
-         <y>330</y>
-         <width>131</width>
+         <x>30</x>
+         <y>480</y>
+         <width>141</width>
          <height>41</height>
         </rect>
        </property>
@@ -437,45 +642,75 @@ border-width:2px;
 color:white;</string>
        </property>
        <property name="text">
-        <string>1. Mở App Lazada</string>
+        <string>Đổi Tên Tài Khoản</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_DangNhapBangFB">
+      <widget class="QPushButton" name="pushButton_DoiMatKhauLZD">
        <property name="geometry">
         <rect>
-         <x>260</x>
-         <y>140</y>
-         <width>131</width>
+         <x>30</x>
+         <y>420</y>
+         <width>141</width>
          <height>41</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: #407294;
+        <string notr="true">background-color: #f7347a;
 
 border-width:2px;
-color:white;
-font-size:10px;</string>
+
+color:white;</string>
        </property>
        <property name="text">
-        <string>2. Đăng Nhập Bằng FB</string>
+        <string>Đổi Mật Khẩu</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_RunScript">
+      <widget class="QPushButton" name="pushButton_ThemGioHang">
        <property name="geometry">
         <rect>
-         <x>680</x>
-         <y>210</y>
-         <width>131</width>
+         <x>210</x>
+         <y>460</y>
+         <width>141</width>
          <height>41</height>
         </rect>
        </property>
        <property name="font">
-        <font/>
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #f7347a;
+
+border-width:2px;
+
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Thêm Giỏ Hàng 30k</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_LuuRRSRegAcc">
+       <property name="geometry">
+        <rect>
+         <x>380</x>
+         <y>110</y>
+         <width>131</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: #ff7373;
@@ -484,23 +719,203 @@ border-width:5px;
 color:white;</string>
        </property>
        <property name="text">
-        <string>3. Chức Năng Phụ</string>
+        <string>Lưu RRS Khung 30K</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_LockScreen">
+       <property name="geometry">
+        <rect>
+         <x>920</x>
+         <y>530</y>
+         <width>111</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #ff7373;
+
+border-width:5px;
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Lock Screen</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_UnlockScreen">
+       <property name="geometry">
+        <rect>
+         <x>920</x>
+         <y>450</y>
+         <width>111</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #56adc4;
+
+border-width:2px;
+
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Unlock Screen</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_MoAppLZD">
+       <property name="geometry">
+        <rect>
+         <x>380</x>
+         <y>310</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #eca154;
+
+border-width:5px;
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Mở App LZD Fake</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_PressHome">
+       <property name="geometry">
+        <rect>
+         <x>780</x>
+         <y>530</y>
+         <width>121</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #eca154;
+
+border-width:5px;
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Press Home</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_Respring">
+       <property name="geometry">
+        <rect>
+         <x>780</x>
+         <y>450</y>
+         <width>121</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #ff7373;
+
+border-width:5px;
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Respring</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_DangNhapBangFB">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>180</y>
+         <width>151</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #56adc4;
+
+border-width:2px;
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Đăng Nhập Bằng FB</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_RunScript">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>110</y>
+         <width>131</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #eca154;
+
+border-width:5px;
+color:white;
+font-size:15px;</string>
+       </property>
+       <property name="text">
+        <string>Run Script</string>
        </property>
       </widget>
       <widget class="QWidget" name="widget_FakeAppLZD" native="true">
        <property name="geometry">
         <rect>
-         <x>440</x>
-         <y>390</y>
-         <width>381</width>
-         <height>261</height>
+         <x>390</x>
+         <y>420</y>
+         <width>351</width>
+         <height>191</height>
         </rect>
        </property>
        <widget class="QCheckBox" name="checkBox_FakeIos">
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>20</y>
+          <y>0</y>
           <width>151</width>
           <height>31</height>
          </rect>
@@ -519,7 +934,7 @@ color:white;</string>
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>50</y>
+          <y>40</y>
           <width>141</width>
           <height>31</height>
          </rect>
@@ -536,7 +951,7 @@ color:black;</string>
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>150</y>
+          <y>140</y>
           <width>141</width>
           <height>41</height>
          </rect>
@@ -561,8 +976,8 @@ font-size:15px;</string>
        <widget class="QPushButton" name="pushButton_FakeVersionApp">
         <property name="geometry">
          <rect>
-          <x>180</x>
-          <y>150</y>
+          <x>170</x>
+          <y>140</y>
           <width>141</width>
           <height>41</height>
          </rect>
@@ -580,15 +995,15 @@ color:white;
 font-size:15px;</string>
         </property>
         <property name="text">
-         <string>1. Chỉ Fake Version</string>
+         <string>Fake Version LZD</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_InputFakeTenApp">
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>100</y>
-          <width>211</width>
+          <y>90</y>
+          <width>191</width>
           <height>31</height>
          </rect>
         </property>
@@ -600,778 +1015,125 @@ color:black;</string>
          <string>com.LazadaSEA.LazadaNgu</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_FakeTenApp">
-        <property name="geometry">
-         <rect>
-          <x>180</x>
-          <y>210</y>
-          <width>141</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>-1</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: #eca154;
+      </widget>
+      <widget class="QPushButton" name="pushButton_QuanHaDong">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>280</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #f7347a;
+
+border-width:2px;
+
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Địa Chỉ Hà Đông</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_QuanHoangMai">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>340</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #f7347a;
+
+border-width:2px;
+
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Địa Chỉ Quận 10</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_ChiXoaInfo">
+       <property name="geometry">
+        <rect>
+         <x>380</x>
+         <y>250</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #eca154;
 
 border-width:5px;
-color:white;
-font-size:12px;</string>
-        </property>
-        <property name="text">
-         <string>2. Fake Luôn Tên App</string>
-        </property>
-       </widget>
-       <widget class="Line" name="line_10">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>371</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-       <widget class="Line" name="line_11">
-        <property name="geometry">
-         <rect>
-          <x>370</x>
-          <y>10</y>
-          <width>20</width>
-          <height>251</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Chỉ Xóa Info</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_MoAppLZDGoc">
+       <property name="geometry">
+        <rect>
+         <x>380</x>
+         <y>370</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #eca154;
+
+border-width:5px;
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>Mở App LZD Gốc</string>
+       </property>
       </widget>
       <widget class="QComboBox" name="comboBox_ListScript">
        <property name="geometry">
         <rect>
-         <x>430</x>
-         <y>220</y>
-         <width>211</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:white;
-color:black;</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_XoaInfo">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>80</y>
-         <width>211</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:white;
-color:black;</string>
-       </property>
-      </widget>
-      <widget class="Line" name="line">
-       <property name="geometry">
-        <rect>
-         <x>400</x>
-         <y>50</y>
-         <width>20</width>
-         <height>221</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_DangNhapBangFB">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>150</y>
-         <width>211</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:white;
-color:black;</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_12">
-       <property name="geometry">
-        <rect>
-         <x>-10</x>
-         <y>120</y>
-         <width>191</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#ff7373;
-font-size:15px;
-font-weight: bold;
-</string>
-       </property>
-       <property name="text">
-        <string>2. Đăng Nhập Bằng FB</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_13">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>190</y>
-         <width>231</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#ff7373;
-font-size:15px;
-font-weight: bold;
-</string>
-       </property>
-       <property name="text">
-        <string>3. Add Mail &amp; Lấy Lại Mật Khẩu</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_AddMail">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>220</y>
-         <width>211</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:white;
-color:black;</string>
-       </property>
-      </widget>
-      <widget class="Line" name="line_2">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>260</y>
-         <width>411</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-      <widget class="Line" name="line_3">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
+         <x>550</x>
          <y>40</y>
-         <width>411</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-      <widget class="Line" name="line_4">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>300</y>
-         <width>401</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_14">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>270</y>
-         <width>311</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:white;
-font-size:15px;</string>
-       </property>
-       <property name="text">
-        <string>II. CÁC CHỨC NĂNG ĐẶT HÀNG</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="Line" name="line_5">
-       <property name="geometry">
-        <rect>
-         <x>400</x>
-         <y>310</y>
-         <width>20</width>
-         <height>331</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_15">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>310</y>
-         <width>141</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#ff7373;
-font-size:15px;
-font-weight: bold;
-</string>
-       </property>
-       <property name="text">
-        <string>1. Mở App Lazada</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_MoAppLZD">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>340</y>
          <width>211</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:white;
-color:black;</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_DangNhapLZD">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>400</y>
-         <width>211</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:white;
-color:black;</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_16">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>380</y>
-         <width>161</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#ff7373;
-font-size:15px;
-font-weight: bold;
-</string>
-       </property>
-       <property name="text">
-        <string>2. Đăng Nhập Lazada</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_TaoDiaChi">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>530</y>
-         <width>211</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:white;
-color:black;</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_17">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>500</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#ff7373;
-font-size:15px;
-font-weight: bold;
-</string>
-       </property>
-       <property name="text">
-        <string>4. Tạo Địa Chỉ</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_TaoDiaChi">
-       <property name="geometry">
-        <rect>
-         <x>260</x>
-         <y>520</y>
-         <width>131</width>
          <height>41</height>
         </rect>
        </property>
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: #f7347a;
-
-border-width:2px;
-
-color:white;</string>
-       </property>
-       <property name="text">
-        <string>4. Tạo Địa Chỉ</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_MoLink">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>460</y>
-         <width>211</width>
-         <height>31</height>
-        </rect>
-       </property>
        <property name="styleSheet">
         <string notr="true">background-color:white;
 color:black;</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_MoLink">
-       <property name="geometry">
-        <rect>
-         <x>260</x>
-         <y>450</y>
-         <width>131</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: #f7347a;
-
-border-width:2px;
-
-color:white;</string>
-       </property>
-       <property name="text">
-        <string>3. Mở Link</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_18">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>440</y>
-         <width>91</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#ff7373;
-font-size:15px;
-font-weight: bold;
-</string>
-       </property>
-       <property name="text">
-        <string>3. Mở Link</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="Line" name="line_6">
-       <property name="geometry">
-        <rect>
-         <x>410</x>
-         <y>50</y>
-         <width>20</width>
-         <height>221</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_19">
-       <property name="geometry">
-        <rect>
-         <x>420</x>
-         <y>10</y>
-         <width>311</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:white;
-font-size:15px;
-font-weight:bold;</string>
-       </property>
-       <property name="text">
-        <string>III. Các chức năng tiện ích</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="Line" name="line_7">
-       <property name="geometry">
-        <rect>
-         <x>420</x>
-         <y>40</y>
-         <width>401</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_TienIch">
-       <property name="geometry">
-        <rect>
-         <x>430</x>
-         <y>80</y>
-         <width>211</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:white;
-color:black;</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_TienIch">
-       <property name="geometry">
-        <rect>
-         <x>680</x>
-         <y>70</y>
-         <width>131</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: #ff7373;
-
-border-width:5px;
-color:white;</string>
-       </property>
-       <property name="text">
-        <string>1. Tiện Ích</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_20">
-       <property name="geometry">
-        <rect>
-         <x>420</x>
-         <y>50</y>
-         <width>221</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>-1</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#ff7373;
-font-size:15px;</string>
-       </property>
-       <property name="text">
-        <string>1. Đổi IP4G, Resping, Unlock,...</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_21">
-       <property name="geometry">
-        <rect>
-         <x>430</x>
-         <y>120</y>
-         <width>161</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>-1</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#ff7373;
-font-size:15px;</string>
-       </property>
-       <property name="text">
-        <string>2. Lưu &amp;&amp; Restore RRS</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_RRS">
-       <property name="geometry">
-        <rect>
-         <x>430</x>
-         <y>150</y>
-         <width>211</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:white;
-color:black;</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_RRS">
-       <property name="geometry">
-        <rect>
-         <x>680</x>
-         <y>140</y>
-         <width>131</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: #ff7373;
-
-border-width:5px;
-color:white;</string>
-       </property>
-       <property name="text">
-        <string>2. RRS Xóa Info</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_22">
-       <property name="geometry">
-        <rect>
-         <x>430</x>
-         <y>190</y>
-         <width>131</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>-1</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#ff7373;
-font-size:15px;</string>
-       </property>
-       <property name="text">
-        <string>3. Chức Năng Phụ</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="Line" name="line_8">
-       <property name="geometry">
-        <rect>
-         <x>420</x>
-         <y>260</y>
-         <width>391</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-      <widget class="Line" name="line_9">
-       <property name="geometry">
-        <rect>
-         <x>810</x>
-         <y>50</y>
-         <width>20</width>
-         <height>221</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_KetQuaChay">
-       <property name="geometry">
-        <rect>
-         <x>690</x>
-         <y>300</y>
-         <width>171</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#5ac18e;
-font-size: 12px;
-font-weight:bold;</string>
-       </property>
-       <property name="text">
-        <string>Success</string>
-       </property>
-      </widget>
-      <widget class="Line" name="line_12">
-       <property name="geometry">
-        <rect>
-         <x>430</x>
-         <y>400</y>
-         <width>20</width>
-         <height>251</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
        </property>
       </widget>
       <zorder>label_6</zorder>
+      <zorder>pushButton_ChiDangNhapLZD</zorder>
       <zorder>label_Kho</zorder>
       <zorder>label_ResultKhoDuLieu</zorder>
       <zorder>label_Kho_2</zorder>
@@ -1381,52 +1143,36 @@ font-weight:bold;</string>
       <zorder>label_Kho_3</zorder>
       <zorder>label_ResultKhoDuLieuAccLZD</zorder>
       <zorder>pushButton_ClickDatHang</zorder>
+      <zorder>pushButton_MoLinkNhanh</zorder>
+      <zorder>pushButton_DiaChiTanPhu</zorder>
+      <zorder>pushButton_DiaChiThuongTin</zorder>
+      <zorder>pushButton_LuuRRS</zorder>
       <zorder>pushButton_DangNhapLZD</zorder>
+      <zorder>pushButton_RestoreRRS</zorder>
       <zorder>pushButton_NapAccVaoMay_2</zorder>
+      <zorder>pushButton_DoiTenTaiKhoan</zorder>
+      <zorder>pushButton_DoiMatKhauLZD</zorder>
+      <zorder>pushButton_ThemGioHang</zorder>
+      <zorder>pushButton_LuuRRSRegAcc</zorder>
+      <zorder>pushButton_LockScreen</zorder>
+      <zorder>pushButton_UnlockScreen</zorder>
       <zorder>pushButton_MoAppLZD</zorder>
+      <zorder>pushButton_PressHome</zorder>
+      <zorder>pushButton_Respring</zorder>
       <zorder>pushButton_DangNhapBangFB</zorder>
       <zorder>pushButton_RunScript</zorder>
       <zorder>widget_FakeAppLZD</zorder>
+      <zorder>pushButton_QuanHaDong</zorder>
+      <zorder>pushButton_QuanHoangMai</zorder>
+      <zorder>pushButton_ChiXoaInfo</zorder>
+      <zorder>pushButton_MoAppLZDGoc</zorder>
       <zorder>comboBox_ListScript</zorder>
-      <zorder>comboBox_XoaInfo</zorder>
-      <zorder>comboBox_DangNhapBangFB</zorder>
-      <zorder>label_12</zorder>
-      <zorder>label_13</zorder>
-      <zorder>comboBox_AddMail</zorder>
-      <zorder>line_2</zorder>
-      <zorder>line_3</zorder>
-      <zorder>line</zorder>
-      <zorder>line_4</zorder>
-      <zorder>label_14</zorder>
-      <zorder>line_5</zorder>
-      <zorder>label_15</zorder>
-      <zorder>comboBox_MoAppLZD</zorder>
-      <zorder>comboBox_DangNhapLZD</zorder>
-      <zorder>label_16</zorder>
-      <zorder>comboBox_TaoDiaChi</zorder>
-      <zorder>label_17</zorder>
-      <zorder>pushButton_TaoDiaChi</zorder>
-      <zorder>comboBox_MoLink</zorder>
-      <zorder>pushButton_MoLink</zorder>
-      <zorder>label_18</zorder>
-      <zorder>line_6</zorder>
-      <zorder>label_19</zorder>
-      <zorder>line_7</zorder>
-      <zorder>comboBox_TienIch</zorder>
-      <zorder>pushButton_TienIch</zorder>
-      <zorder>label_20</zorder>
-      <zorder>label_21</zorder>
-      <zorder>comboBox_RRS</zorder>
-      <zorder>pushButton_RRS</zorder>
-      <zorder>label_22</zorder>
-      <zorder>line_9</zorder>
-      <zorder>line_8</zorder>
-      <zorder>label_KetQuaChay</zorder>
-      <zorder>line_12</zorder>
      </widget>
      <zorder>widget</zorder>
      <zorder>pushButton_FullXoaInfo</zorder>
      <zorder>pushButton_FullAddMail</zorder>
+     <zorder>pushButton_FullAddMail_2</zorder>
+     <zorder>pushButton_FullAppManager</zorder>
      <zorder>tableWidget_IPMay</zorder>
     </widget>
     <widget class="QWidget" name="tab_5">
