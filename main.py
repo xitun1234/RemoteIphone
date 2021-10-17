@@ -403,11 +403,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # 4. Tao Dia Chi
         listScriptTaoDiaChi = {
-            "Địa Chỉ Thường Tín": "/RemoteWifi/LZD2-TaoDiaChi.js",
-            "Địa Chỉ Long Biên": "/RemoteWifi/LZD22-DiaChiLongBien.js",
-            "Địa Chỉ Hà Đông": "/RemoteWifi/LZD22-DiaChiHaDong.js",
-            "Địa Chỉ Hoàng Mai": "/RemoteWifi/LZD22-DiaChiQuan10.js",
-            "Địa Chỉ Quận 10": "/RemoteWifi/LZD22-DiaChiQuan10.js",
+            "[Hà Nội] - Thường Tín": "/RemoteWifi/LZD2-TaoDiaChi.js",
+            "[Hà Nội] - Long Biên": "/RemoteWifi/TaoDiaChi-LongBien.js",
+            "[Hà Nội] - Hoàng Mai": "/RemoteWifi/TaoDiaChi-HoangMai.js",
+            "[Hà Nội] - Đống Đa": "/RemoteWifi/TaoDiaChi-DongDa.js",
+            "[Hà Nội] - Hà Đông": "/RemoteWifi/TaoDiaChi-HaDong.js",
+            "[HCM] - Quận 10 - P13": "/RemoteWifi/LZD22-DiaChiQuan10.js",
+            "[HCM] - Quận 5": "/RemoteWifi/TaoDiaChi-Quan5.js",
+            "[Click Lưu Địa Chỉ]": "/RemoteWifi/TaoDiaChi-LuuDiaChi.js",
         }
 
         for script in listScriptTaoDiaChi:
@@ -438,6 +441,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # combo box list script
         listScript = {
+            "Click Hoàn Tất": "/RemoteWifi/TienIch-ClickHoanTat.js",
+            "Trượt Tới Khung MGG": "/RemoteWifi/TienIch-TruotToiKhungFreeShip.js",
             "Mua Ngay X5 - Xanh": "/RemoteWifi/TienIch-MuaNgayX5-1.js",
             "Mua Ngay X5 - Đen": "/RemoteWifi/TienIch-MuaNgayX5-2.js",
             "Sửa Địa Chỉ Về Quận 10": "/RemoteWifi/TienIch-SuaDiaChiVeQuan10.js",
