@@ -379,6 +379,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         listScriptMoApp = {
             "Mở App Fake": "/RemoteWifi/TienIch-MoAppLZDFake.js",
             "Mở App Gốc": "/RemoteWifi/TienIch-MoAppLazadaGoc.js",
+            "Mở App Gốc - Xem Gần Đây": "/RemoteWifi/TienIch-MoAppVaoCaNhan.js",
         }
 
         for script in listScriptMoApp:
