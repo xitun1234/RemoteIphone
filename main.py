@@ -45,6 +45,16 @@ listDeviceDict = {
     "192.168.3.38": "18",
     "192.168.3.39": "19",
     "192.168.3.40": "20",
+    "192.168.3.121": "21",
+    "192.168.3.122": "22",
+    "192.168.3.123": "23",
+    "192.168.3.124": "24",
+    "192.168.3.125": "25",
+    "192.168.3.126": "26",
+    "192.168.3.127": "27",
+    "192.168.3.128": "28",
+    "192.168.3.129": "29",
+    "192.168.3.130": "30",
 }
 
 
@@ -88,6 +98,16 @@ class Remote(QRunnable):
         "192.168.3.38": "18",
         "192.168.3.39": "19",
         "192.168.3.40": "20",
+        "192.168.3.121": "21",
+        "192.168.3.122": "22",
+        "192.168.3.123": "23",
+        "192.168.3.124": "24",
+        "192.168.3.125": "25",
+        "192.168.3.126": "26",
+        "192.168.3.127": "27",
+        "192.168.3.128": "28",
+        "192.168.3.129": "29",
+        "192.168.3.130": "30",
     }
 
     def __init__(self, urlRemote, scriptKho, ipMay, parent=None):
@@ -452,8 +472,20 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         }
 
         for script in listScript:
-            print(script)
+       
             self.comboBox_ListScript.addItem(script)
+            
+        # 2. Luu & Restore RRS
+        listScriptRecord = {
+            "Vao Trang Realme": "/RemoteWifi/Record-VaoTrangRealme.js",
+            "X5 - Xanh": "/RemoteWifi/Record-C21YXanhX5.js",
+            "Vào Trang Apple": "/RemoteWifi/Record-VaoTrangApple.js",
+            "13 Pro Max " : "/RemoteWifi/Record-VaoTrangApple.js"
+        }
+
+        for script in listScriptRecord:
+            print(script)
+            self.comboBox_ListScriptRecord.addItem(script)
 
         # button cac chuc nang
         # I
@@ -538,7 +570,17 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             x.text(), listScript[self.comboBox_ListScript.currentText()]))
 
         self.pushButton_RunScript.setMenu(self.menuChucNangPhu)
-        self.add_menu(self.myListDevice, self.menuChucNangPhu)        
+        self.add_menu(self.myListDevice, self.menuChucNangPhu)  
+        
+        # 4. Record
+        self.menuRecord = QMenu()
+        self.menuRecord.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptRecord[self.comboBox_ListScriptRecord.currentText()]))
+
+        self.pushButton_Record.setMenu(self.menuRecord)
+        self.add_menu(self.myListDevice, self.menuRecord)  
+        
+              
 
         # tao menu
         listDevice = []

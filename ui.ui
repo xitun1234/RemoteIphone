@@ -390,8 +390,8 @@ color:white;</string>
       <widget class="QPushButton" name="pushButton_NapAccVaoMay_2">
        <property name="geometry">
         <rect>
-         <x>460</x>
-         <y>310</y>
+         <x>450</x>
+         <y>340</y>
          <width>191</width>
          <height>51</height>
         </rect>
@@ -1333,8 +1333,8 @@ font-size:15px;</string>
       <widget class="QLabel" name="label_KetQuaChay">
        <property name="geometry">
         <rect>
-         <x>690</x>
-         <y>300</y>
+         <x>680</x>
+         <y>330</y>
          <width>171</width>
          <height>61</height>
         </rect>
@@ -1369,6 +1369,42 @@ font-weight:bold;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_ListScriptRecord">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>270</y>
+         <width>211</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;
+color:black;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_Record">
+       <property name="geometry">
+        <rect>
+         <x>680</x>
+         <y>270</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font/>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #ff7373;
+
+border-width:5px;
+color:white;</string>
+       </property>
+       <property name="text">
+        <string>4. Record</string>
        </property>
       </widget>
       <zorder>label_6</zorder>
@@ -1423,6 +1459,8 @@ font-weight:bold;</string>
       <zorder>line_8</zorder>
       <zorder>label_KetQuaChay</zorder>
       <zorder>line_12</zorder>
+      <zorder>comboBox_ListScriptRecord</zorder>
+      <zorder>pushButton_Record</zorder>
      </widget>
      <zorder>widget</zorder>
      <zorder>pushButton_FullXoaInfo</zorder>
