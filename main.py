@@ -442,8 +442,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # combo box list script
         listScript = {
+            "Theo Dõi Shop": "/RemoteWifi/TienIch-TheoDoiShop.js",
             "Click Hoàn Tất": "/RemoteWifi/TienIch-ClickHoanTat.js",
             "Trượt Tới Khung MGG": "/RemoteWifi/TienIch-TruotToiKhungFreeShip.js",
+            "Click Mua Ngay": "/RemoteWifi/TienIch-ClickMuaNgay.js",
             "Mua Ngay X5 - Xanh": "/RemoteWifi/TienIch-MuaNgayX5-1.js",
             "Mua Ngay X5 - Đen": "/RemoteWifi/TienIch-MuaNgayX5-2.js",
             "Sửa Địa Chỉ Về Quận 10": "/RemoteWifi/TienIch-SuaDiaChiVeQuan10.js",
