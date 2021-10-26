@@ -17,6 +17,7 @@ from PyQt5.QtWidgets import (
     QWidget,
 )
 import time
+import datetime
 import requests
 import re
 import json
@@ -369,7 +370,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # 1. Xoa Info
         listScriptXoaInfo = {
             "Full Xóa Info": "/RemoteWifi/Part1-RegAccXoaInfo.js",
-            "Chỉ Xóa Info": "/RemoteWifi/TienIch-XoaInfo.js",
+            "Chỉ Xóa Info - Mở App Fake": "/RemoteWifi/TienIch-XoaInfo.js",
         }
 
         for script in listScriptXoaInfo:
@@ -399,6 +400,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         listScriptMoApp = {
             "Mở App Fake": "/RemoteWifi/TienIch-MoAppLZDFake.js",
             "Mở App Gốc": "/RemoteWifi/TienIch-MoAppLazadaGoc.js",
+            "[Chỉ] App Gốc": "/RemoteWifi/TienIch-ChiMoAppLazadaGoc.js",
             "Mở App Gốc - Xem Gần Đây": "/RemoteWifi/TienIch-MoAppVaoCaNhan.js",
         }
 
@@ -408,7 +410,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # 2. Dang Nhap Lazada
         listScriptDangNhapLZD = {
             "Full Đăng Nhập": "/RemoteWifi/LZD1-DangNhapBangMatKhau.js",
-            "Chỉ Đăng Nhập": "/RemoteWifi/LZD11-ChiDangNhapLZD.js",
+            "Chỉ Đăng Nhập - App Fake": "/RemoteWifi/LZD11-ChiDangNhapLZD.js",
         }
 
         for script in listScriptDangNhapLZD:
@@ -477,6 +479,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
         # 2. Luu & Restore RRS
         listScriptRecord = {
+            "Record - Thu Thập Mã 30K": "/RemoteWifi/Lazada-ThuThapMa30K.js",
             "Vao Trang Realme": "/RemoteWifi/Record-VaoTrangRealme.js",
             "X5 - Xanh": "/RemoteWifi/Record-C21YXanhX5.js",
             "Vào Trang Apple": "/RemoteWifi/Record-VaoTrangApple.js",
@@ -842,7 +845,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 print(device)
                 self.napAccNew(device)
 
-        self.label_KetQuaChay.setText(str("Nạp Acc Thành Công"))
+        content = "Nạp Acc Thành Công\n" + str(datetime.datetime.now())
+        self.label_KetQuaChay.setText(str(content))
 
         self.capNhatKho()
         self.showDataKhoDatHang()
