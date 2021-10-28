@@ -418,7 +418,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # 3. Mo Link
         listScriptMoLink = {
-            "Mở Link Sản Phẩm": "/RemoteWifi/LZD3-MoLinkNhanh.js",
+            "Mở Link App Gốc": "/RemoteWifi/LZD3-MoLinkNhanh.js",
+            "Mở Link Bình Thường": "/RemoteWifi/TienIch-MoLink.js",
         }
 
         for script in listScriptMoLink:
@@ -471,9 +472,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             "Trượt Tới Khung MGG": "/RemoteWifi/TienIch-TruotToiKhungFreeShip.js",
             "Click Mua Ngay": "/RemoteWifi/TienIch-ClickMuaNgay.js",
             "Click Thu Thập - Mã Giảm Giá": "/RemoteWifi/TienIch-ClickThuThap.js",
-
+            "Thêm Giỏ Hàng X3": "/RemoteWifi/TienIch-ThemGioHangX3.js",
+            "Tắt Khung Voucher Dịch Vụ": "/RemoteWifi/TienIch-TatKhungDiaChi.js",
             "Sửa Địa Chỉ Về Quận 10": "/RemoteWifi/TienIch-SuaDiaChiVeQuan10.js",
             "Sửa Địa Chỉ Về Quận 5": "/RemoteWifi/TienIch-SuaDiaChiVeQuan5.js",
+            "Chụp Đơn Hàng": "/RemoteWifi/TienIch-ChupDonHang.js",
         }
 
         for script in listScript:
@@ -493,7 +496,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             "Poco X5 - Đen": "/RemoteWifi/Record-PocoX3ProX5Den.js",
             "Poco X5 - Vàng": "/RemoteWifi/Record-PocoX3ProX5Vang.js",
             
-            "13 Pro Max " : "/RemoteWifi/Record-VaoTrangApple.js"
+            "13 Pro Max 128GB - Xanh " : "/RemoteWifi/Record-13PM128GB-Xanh.js",
+            "13 Pro Max 128GB - Vàng " : "/RemoteWifi/Record-13PM128GB-Vang.js",
+            "13 Pro Max 128GB - Trắng " : "/RemoteWifi/Record-13PM128GB-Trang.js",
+            "Ipad Gen 9 64GB - Xám " : "/RemoteWifi/Record-IPAD-Xam.js",
+            "Ipad Gen 9 64GB - Trắng " : "/RemoteWifi/Record-IPAD-Trang.js",
         }
 
         for script in listScriptRecord:
