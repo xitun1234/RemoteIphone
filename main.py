@@ -426,9 +426,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # 4. Tao Dia Chi
         listScriptTaoDiaChi = {
-            "[Hà Nội] - Thường Tín": "/RemoteWifi/LZD2-TaoDiaChi.js",
-            "[Hà Nội] - Long Biên": "/RemoteWifi/TaoDiaChi-LongBien.js",
-            "[Hà Nội] - Hoàng Mai": "/RemoteWifi/TaoDiaChi-HoangMai.js",
+            "[Hà Nội] - Thanh Oai - Full": "/RemoteWifi/TaoDiaChi-ThanhOai.js",
+            "[Hà Nội] - Thường Tín - Full": "/RemoteWifi/LZD2-TaoDiaChi.js",
+            "[Hà Nội] - Long Biên - Full": "/RemoteWifi/TaoDiaChi-LongBien.js",
+            "[Hà Nội] - Hoàng Mai - Full": "/RemoteWifi/TaoDiaChi-HoangMai.js",
+            "[Hà Nội] - Gia Lâm - Full": "/RemoteWifi/TaoDiaChi-GiaLam.js",
             "[Hà Nội] - Đống Đa": "/RemoteWifi/TaoDiaChi-DongDa.js",
             "[Hà Nội] - Hà Đông": "/RemoteWifi/TaoDiaChi-HaDong.js",
             "[HCM] - Quận 10 - P13": "/RemoteWifi/LZD22-DiaChiQuan10.js",
@@ -471,6 +473,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             "Click Thu Thập - Mã Giảm Giá": "/RemoteWifi/TienIch-ClickThuThap.js",
 
             "Sửa Địa Chỉ Về Quận 10": "/RemoteWifi/TienIch-SuaDiaChiVeQuan10.js",
+            "Sửa Địa Chỉ Về Quận 5": "/RemoteWifi/TienIch-SuaDiaChiVeQuan5.js",
         }
 
         for script in listScript:
@@ -480,9 +483,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # 2. Luu & Restore RRS
         listScriptRecord = {
             "Record - Thu Thập Mã 30K": "/RemoteWifi/Lazada-ThuThapMa30K.js",
-            "Vao Trang Realme": "/RemoteWifi/Record-VaoTrangRealme.js",
-            "X5 - Xanh": "/RemoteWifi/Record-C21YXanhX5.js",
             "Vào Trang Apple": "/RemoteWifi/Record-VaoTrangApple.js",
+            "Vào Trang Vivo": "/RemoteWifi/Record-VaoTrangVivo.js",
+            "Vao Trang Realme": "/RemoteWifi/Record-VaoTrangRealme.js",
+            "Vào Trang Xiaomi": "/RemoteWifi/Record-VaoTrangXiaomi.js",
+            "Vivo X5 - Xanh": "/RemoteWifi/Record-VivoY12s-Xanh.js",
+            "Vivo X5 - Đen": "/RemoteWifi/Record-VivoY12s-Den.js",
+            "C21Y X5 - Xanh": "/RemoteWifi/Record-C21YXanhX5.js",
+            "Poco X5 - Đen": "/RemoteWifi/Record-PocoX3ProX5Den.js",
+            "Poco X5 - Vàng": "/RemoteWifi/Record-PocoX3ProX5Vang.js",
+            
             "13 Pro Max " : "/RemoteWifi/Record-VaoTrangApple.js"
         }
 
