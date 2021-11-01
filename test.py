@@ -1,9 +1,6 @@
 import sys
 
-listScript =	{
-  "Mua Ngay X5 - Đen": "/RemoteWifi/TienIch-MuaNgayX5-1.js",
-  "Mua Ngay X5 - Xanh": "/RemoteWifi/TienIch-MuaNgayX5-2.js",
-  
-}
-for x in listScript:
-    print(listScript[x])
+file = open("./Config/owner.txt", "r", encoding="utf-8")
+listOwner = file.readlines()
+owner = listOwner[0]
+print(owner.split("\n")[0])

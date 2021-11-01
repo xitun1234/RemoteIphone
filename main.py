@@ -24,6 +24,10 @@ import json
 from urllib.parse import urlparse, parse_qs
 import pandas as pd
 
+fileOwner = open("./Config/owner.txt", "r", encoding="utf-8")
+listOwner = fileOwner.readlines()
+owner = listOwner[0]
+
 
 listDeviceDict = {
     "192.168.3.21": "1",
@@ -133,7 +137,7 @@ class Remote(QRunnable):
             "mail": "",
             "passMail": "",
             "twoFA": "",
-            "owner": "admin"
+            "owner": owner,
         }
 
         dataPost["username"] = data[0]
@@ -159,7 +163,7 @@ class Remote(QRunnable):
             "deviceName": dataParse["deviceName"][0],
             "address": dataParse["address"][0],
             "link": dataParse["link"][0],
-            "owner": "admin"
+            "owner": owner,
         }
 
         print(dataPost)
@@ -190,7 +194,7 @@ class Remote(QRunnable):
             "password": "",
             "address": "",
             "phoneNumber": "",
-            "owner": "admin"
+            "owner": owner
         }
 
         dataPost["username"] = data[0]
@@ -208,7 +212,7 @@ class Remote(QRunnable):
         self.mutex.lock()
         
         linkAPI = "http://lzd420.me/api/getKhoDatHang&deviceName=" + \
-            self.listDeviceDict[self.ipMay] + "&owner=admin"
+            self.listDeviceDict[self.ipMay] + "&owner=" + owner
         response = requests.get(linkAPI,timeout=10)
         jsonData = response.json()
         if (jsonData["status"] == 'success'):
@@ -222,7 +226,7 @@ class Remote(QRunnable):
                 "deviceName": dataAcc["deviceName"],
                 "address": dataAcc["address"],
                 "link": "",
-                "owner": "admin"
+                "owner": owner
             }
 
             print(dataPost)
@@ -246,7 +250,7 @@ class Remote(QRunnable):
     def capNhatLink(self):
         data = self.scriptKho.split("|")
         linkAPI = "http://lzd420.me/API/getinfo&deviceName=" + \
-            data[1] + "&owner=admin"
+            data[1] + "&owner=" + owner 
         response = requests.get(linkAPI)
         dataJSON = (response.json())["data"]
 
@@ -257,7 +261,7 @@ class Remote(QRunnable):
             "deviceName": dataJSON["deviceName"],
             "address": dataJSON["address"],
             "link": data[0],
-            "owner": "admin"
+            "owner": owner
         }
 
         respSetInfo = requests.post("http://lzd420.me/API/setinfo", dataPost)
@@ -390,6 +394,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             "Lấy Lại Mật Khẩu": "/RemoteWifi/Part3-LayLaiMatKhau.js",
             "Đổi Mật Khẩu": "/RemoteWifi/LZD13-DoiMatKhauLZD.js",
             "Đổi Tên Tài Khoản": "/RemoteWifi/LZD12-DoiTenTaiKhoan.js",
+            "Vào Khung Yêu Thích": "/RemoteWifi/Lazada-VaoKhungYeuThich.js",
         }
 
         for script in listScriptAddMail:
@@ -401,6 +406,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             "Mở App Fake": "/RemoteWifi/TienIch-MoAppLZDFake.js",
             "Mở App Gốc": "/RemoteWifi/TienIch-MoAppLazadaGoc.js",
             "[Chỉ] App Gốc": "/RemoteWifi/TienIch-ChiMoAppLazadaGoc.js",
+            "[Chỉ] App Fake": "/RemoteWifi/TienIch-ChiMoAppLazadaFake.js",
             "Mở App Gốc - Xem Gần Đây": "/RemoteWifi/TienIch-MoAppVaoCaNhan.js",
         }
 
@@ -1158,7 +1164,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             dataPost = {
                 "username": account,
                 "status": self.lineEdit_Status.text(),
-                "owner": "admin"
+                "owner": owner
             }
 
             jsonData = json.dumps(dataPost)
@@ -1202,7 +1208,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def napAccNew(self, ipMay):
 
         linkAPI = "http://lzd420.me/api/getKhoDatHang&deviceName=" + \
-            listDeviceDict[ipMay] + "&owner=admin"
+            listDeviceDict[ipMay] + "&owner=" + owner
         response = requests.get(linkAPI)
         jsonData = response.json()
         if (jsonData["status"] == 'success'):
@@ -1216,7 +1222,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 "deviceName": dataAcc["deviceName"],
                 "address": dataAcc["address"],
                 "link": "",
-                "owner": "admin"
+                "owner": owner
             }
 
             print(dataPost)
@@ -1289,7 +1295,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             "appVersion": versionApp,
             "isFakeAppRandom": isFakeAppRandom,
             "CFBundleIdentifier": tenApp,
-            "owner": "admin",
+            "owner": owner,
         }
         print(dataPost)
 
@@ -1299,7 +1305,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print(response.json())
 
     def showCauHinh(self):
-        apiViewCauHinh = "https://lzd420.me/api/getCauHinhFake&owner=admin"
+        print(owner)
+        apiViewCauHinh = "https://lzd420.me/api/getCauHinhFake&owner=" + owner
         response = requests.get(apiViewCauHinh, timeout=20)
         jsonData = response.json()[0]
         self.lineEdit_InputFakeVersionApp.setText(str(jsonData["appVersion"]))
