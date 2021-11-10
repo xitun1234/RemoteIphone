@@ -253,6 +253,7 @@ class Remote(QRunnable):
             data[1] + "&owner=" + owner 
         response = requests.get(linkAPI)
         dataJSON = (response.json())["data"]
+        print(dataJSON)
 
         dataPost = {
             "username": dataJSON["username"],
@@ -433,6 +434,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # 4. Tao Dia Chi
         listScriptTaoDiaChi = {
+            "[HCM] - Quận Tân Phú": "/RemoteWifi/TaoDiaChi-TanPhu.js",
             "[Hà Nội] - Thanh Oai - Full": "/RemoteWifi/TaoDiaChi-ThanhOai.js",
             "[Hà Nội] - Thường Tín - Full": "/RemoteWifi/LZD2-TaoDiaChi.js",
             "[Hà Nội] - Long Biên - Full": "/RemoteWifi/TaoDiaChi-LongBien.js",
@@ -483,6 +485,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             "Sửa Địa Chỉ Về Quận 10": "/RemoteWifi/TienIch-SuaDiaChiVeQuan10.js",
             "Sửa Địa Chỉ Về Quận 5": "/RemoteWifi/TienIch-SuaDiaChiVeQuan5.js",
             "Chụp Đơn Hàng": "/RemoteWifi/TienIch-ChupDonHang.js",
+            "Tắt Hộp Quà 11-11": "/RemoteWifi/1111-TatHopQua.js",
         }
 
         for script in listScript:
@@ -694,6 +697,49 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # luu cau hinh fake
         self.pushButton_LuuCauHinhFake.clicked.connect(self.luuCauHinhFake)
+        
+        
+        
+        ########################## 11-11-2021 ################################
+        #Vivo
+        #Vao San Pham
+        listScriptVaoSanPhamVivo = {
+            "Vào Sản Phẩm Vivo Y12S": "/RemoteWifi/1111-VaoSanPham-Y12S.js",
+           
+        }
+
+        for script in listScriptVaoSanPhamVivo:
+            self.comboBox_SanSale_VaoTrangVivo.addItem(script)
+            
+        # Vao San Pham
+        self.menuVaoSanPhamVivo = QMenu()
+        self.menuVaoSanPhamVivo.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptVaoSanPhamVivo[self.comboBox_SanSale_VaoTrangVivo.currentText()]))
+
+        self.pushButton_SanSale_VaoSanPhamVivo.setMenu(self.menuVaoSanPhamVivo)
+        self.add_menu(self.myListDevice, self.menuVaoSanPhamVivo)
+        
+        #Vivo Đặt Hàng
+        listScriptDatHangVivo= {
+            "Y12S X5 - Màu xanh": "/RemoteWifi/1111-SanSale-Y12S-Xanh.js",
+            "Y12S X5 - Màu đen": "/RemoteWifi/1111-SanSale-Y12S-Den.js",
+            "Y12S X5 - Màu xanh 2021": "/RemoteWifi/1111-SanSale-Y12S-Xanh-2021.js",
+            "Y12S X5 - Màu đen 2021": "/RemoteWifi/1111-SanSale-Y12S-Den-2021.js",
+           
+        }
+
+        for script in listScriptDatHangVivo:
+            self.comboBox_SanSale_VivoY12S.addItem(script)
+            
+        # Dat Hang Vivo
+        self.menuDatHangVivo = QMenu()
+        self.menuDatHangVivo.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptDatHangVivo[self.comboBox_SanSale_VivoY12S.currentText()]))
+
+        self.pushButton_SanSale_DatHang_Y12S.setMenu(self.menuDatHangVivo)
+        self.add_menu(self.myListDevice, self.menuDatHangVivo)
+        
+        
 
     def selectionchange(self, i):
         print("Items in the list are :")
