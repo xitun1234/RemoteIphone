@@ -974,8 +974,27 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.menuChucNangPhuDatHang.triggered.connect(lambda x: self.apiPlayScript(
             x.text(), listScriptChucNangPhu[self.comboBox_SanSale_ChucNangPhu.currentText()]))
 
-        self.pushButton_SanSale_ChucNangPhu.setMenu(self.menuChucNangPhuDatHang)
+        self.pushButton_SanSale_TruotVaDatDon.setMenu(self.menuChucNangPhuDatHang)
         self.add_menu(self.myListDevice, self.menuChucNangPhuDatHang)
+        
+        
+        ###list script
+        listScriptTruot= {
+            "Trượt Khung Đặt Đơn": "/RemoteWifi/1111-SanSale-TruotMuaHang.js",
+            "Click Đặt Đơn": "/RemoteWifi/1111-ClickDatDon.js",
+            
+        }
+
+        for script in listScriptTruot:
+            self.comboBox_SanSale_TruotVaDatDon.addItem(script)
+            
+        # Vao San Pham
+        self.menuTruot= QMenu()
+        self.menuTruot.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptTruot[self.comboBox_SanSale_TruotVaDatDon.currentText()]))
+
+        self.pushButton_SanSale_ChucNangPhu.setMenu(self.menuTruot)
+        self.add_menu(self.myListDevice, self.menuTruot)
         
         
 

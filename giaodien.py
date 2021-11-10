@@ -1058,6 +1058,31 @@ class Ui_MainWindow(object):
 "border-width:5px;\n"
 "color:white;")
         self.pushButton_SanSale_DatHang_9A.setObjectName("pushButton_SanSale_DatHang_9A")
+        self.label_37 = QtWidgets.QLabel(self.widget_7)
+        self.label_37.setGeometry(QtCore.QRect(750, 270, 191, 21))
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        self.label_37.setFont(font)
+        self.label_37.setStyleSheet("color:#ff7373;\n"
+"font-size:15px;")
+        self.label_37.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_37.setObjectName("label_37")
+        self.comboBox_SanSale_TruotVaDatDon = QtWidgets.QComboBox(self.widget_7)
+        self.comboBox_SanSale_TruotVaDatDon.setGeometry(QtCore.QRect(780, 300, 211, 31))
+        self.comboBox_SanSale_TruotVaDatDon.setStyleSheet("background-color:white;\n"
+"color:black;")
+        self.comboBox_SanSale_TruotVaDatDon.setObjectName("comboBox_SanSale_TruotVaDatDon")
+        self.pushButton_SanSale_TruotVaDatDon = QtWidgets.QPushButton(self.widget_7)
+        self.pushButton_SanSale_TruotVaDatDon.setGeometry(QtCore.QRect(1020, 300, 111, 41))
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_SanSale_TruotVaDatDon.setFont(font)
+        self.pushButton_SanSale_TruotVaDatDon.setStyleSheet("background-color: #ff7373;\n"
+"\n"
+"border-width:5px;\n"
+"color:white;")
+        self.pushButton_SanSale_TruotVaDatDon.setObjectName("pushButton_SanSale_TruotVaDatDon")
         self.tabWidget.addTab(self.tab_7, "")
         self.tab_5 = QtWidgets.QWidget()
         self.tab_5.setObjectName("tab_5")
@@ -1551,6 +1576,8 @@ class Ui_MainWindow(object):
         self.label_36.setText(_translate("MainWindow", "Redmi 9A"))
         self.pushButton_SanSale_VaoSanPhamXiaomi.setText(_translate("MainWindow", "Vào SP Xiaomi"))
         self.pushButton_SanSale_DatHang_9A.setText(_translate("MainWindow", "Đặt 9A"))
+        self.label_37.setText(_translate("MainWindow", "4. Trượt Và Đặt Đơn"))
+        self.pushButton_SanSale_TruotVaDatDon.setText(_translate("MainWindow", "Chạy"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_7), _translate("MainWindow", "Săn Sale"))
         self.pushButton_ThemDuLieuKhoLZD.setText(_translate("MainWindow", "Thêm Dữ Liệu Vào Kho Acc LZD"))
         self.pushButton_UpdateLinkChoMay.setText(_translate("MainWindow", "Update Link Cho Iphone"))
