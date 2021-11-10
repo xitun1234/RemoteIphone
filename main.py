@@ -484,8 +484,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             "Tắt Khung Voucher Dịch Vụ": "/RemoteWifi/TienIch-TatKhungDiaChi.js",
             "Sửa Địa Chỉ Về Quận 10": "/RemoteWifi/TienIch-SuaDiaChiVeQuan10.js",
             "Sửa Địa Chỉ Về Quận 5": "/RemoteWifi/TienIch-SuaDiaChiVeQuan5.js",
+            "Sửa Địa Chỉ Về Quận Tân Phú": "/RemoteWifi/TienIch-SuaDiaChiVeQuanTanPhu.js",
             "Chụp Đơn Hàng": "/RemoteWifi/TienIch-ChupDonHang.js",
-            "Tắt Hộp Quà 11-11": "/RemoteWifi/1111-TatHopQua.js",
+            
         }
 
         for script in listScript:
