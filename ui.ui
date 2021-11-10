@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1116</width>
+    <width>1231</width>
     <height>817</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1121</width>
+      <width>1231</width>
       <height>821</height>
      </rect>
     </property>
@@ -85,7 +85,7 @@ color:white;</string>
        <rect>
         <x>840</x>
         <y>0</y>
-        <width>261</width>
+        <width>321</width>
         <height>481</height>
        </rect>
       </property>
@@ -108,7 +108,7 @@ color:white;</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1111</width>
+        <width>1241</width>
         <height>811</height>
        </rect>
       </property>
@@ -1476,7 +1476,7 @@ color:white;</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1111</width>
+        <width>1231</width>
         <height>791</height>
        </rect>
       </property>
@@ -1736,7 +1736,7 @@ color:black;</string>
 color:black;</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_SanSale_VaoSanPhamVivo_2">
+       <widget class="QPushButton" name="pushButton_SanSale_VaoSanPham_Realme">
         <property name="geometry">
          <rect>
           <x>500</x>
@@ -2277,7 +2277,7 @@ color:black;</string>
       <widget class="QLabel" name="label_33">
        <property name="geometry">
         <rect>
-         <x>750</x>
+         <x>780</x>
          <y>170</y>
          <width>131</width>
          <height>21</height>
@@ -2302,7 +2302,7 @@ font-size:15px;</string>
       <widget class="QComboBox" name="comboBox_SanSale_ChucNangPhu">
        <property name="geometry">
         <rect>
-         <x>750</x>
+         <x>780</x>
          <y>210</y>
          <width>211</width>
          <height>31</height>
@@ -2316,7 +2316,7 @@ color:black;</string>
       <widget class="QPushButton" name="pushButton_SanSale_ChucNangPhu">
        <property name="geometry">
         <rect>
-         <x>990</x>
+         <x>1020</x>
          <y>210</y>
          <width>111</width>
          <height>41</height>
@@ -2337,6 +2337,158 @@ color:white;</string>
        <property name="text">
         <string>Phụ</string>
        </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_SanSale_Vivo_4">
+       <property name="geometry">
+        <rect>
+         <x>750</x>
+         <y>460</y>
+         <width>461</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="title">
+        <string>Xiaomi</string>
+       </property>
+       <widget class="QLabel" name="label_35">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:#ff7373;
+font-size:15px;</string>
+        </property>
+        <property name="text">
+         <string>Vào Sản Phẩm</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_36">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>80</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:#ff7373;
+font-size:15px;</string>
+        </property>
+        <property name="text">
+         <string>Redmi 9A</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_SanSale_VaoTrangXiaomi">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>20</y>
+          <width>171</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:white;
+color:black;</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_SanSale_Redmi9A">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>80</y>
+          <width>171</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:white;
+color:black;</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_SanSale_VaoSanPhamXiaomi">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>20</y>
+          <width>101</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ff7373;
+
+border-width:5px;
+color:white;</string>
+        </property>
+        <property name="text">
+         <string>Vào SP Xiaomi</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_SanSale_DatHang_9A">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>80</y>
+          <width>101</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #ff7373;
+
+border-width:5px;
+color:white;</string>
+        </property>
+        <property name="text">
+         <string>Đặt 9A</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>

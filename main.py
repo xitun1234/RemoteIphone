@@ -701,7 +701,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
         ########################## 11-11-2021 ################################
-        #Vivo
+        ########################### Vivo #####################################
         #Vao San Pham
         listScriptVaoSanPhamVivo = {
             "Vào Sản Phẩm Vivo Y12S": "/RemoteWifi/1111-VaoSanPham-Y12S.js",
@@ -738,6 +738,244 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.pushButton_SanSale_DatHang_Y12S.setMenu(self.menuDatHangVivo)
         self.add_menu(self.myListDevice, self.menuDatHangVivo)
+        
+        
+        ########################### Realme #####################################
+        #Vao San Pham
+        listScriptVaoSanPhamRealme = {
+            "Vào Sản Phẩm C21Y": "/RemoteWifi/1111-VaoSanPham-C21Y.js",
+            "Vào Sản Phẩm C11": "/RemoteWifi/1111-VaoSanPham-C11.js",
+            "Vào Sản Phẩm Narzo": "/RemoteWifi/1111-VaoSanPham-Narzo.js",
+           
+        }
+
+        for script in listScriptVaoSanPhamRealme:
+            self.comboBox_SanSale_VaoTrangRealme.addItem(script)
+            
+        # Vao San Pham
+        self.menuVaoSanPhamRealme = QMenu()
+        self.menuVaoSanPhamRealme.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptVaoSanPhamRealme[self.comboBox_SanSale_VaoTrangRealme.currentText()]))
+
+        self.pushButton_SanSale_VaoSanPham_Realme.setMenu(self.menuVaoSanPhamRealme)
+        self.add_menu(self.myListDevice, self.menuVaoSanPhamRealme)
+        
+        #Realme Đặt Hàng
+        #C21Y
+        listScriptC21Y= {
+            "C21Y X5 - Màu xanh": "/RemoteWifi/1111-SanSale-C21Y-Xanh.js",
+           
+        }
+
+        for script in listScriptC21Y:
+            self.comboBox_SanSale_RealmeC21Y.addItem(script)
+            
+
+        self.menuC21Y = QMenu()
+        self.menuC21Y.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptC21Y[self.comboBox_SanSale_RealmeC21Y.currentText()]))
+
+        #connect button
+        self.pushButton_SanSale_DatHang_C21Y.setMenu(self.menuC21Y)
+        self.add_menu(self.myListDevice, self.menuC21Y)
+        
+        #C11
+        listScriptC11= {
+            "C11 X5 - Màu xanh": "/RemoteWifi/1111-SanSale-C11-Xanh.js",
+            "C11 X5 - Đen": "/RemoteWifi/1111-SanSale-C11-Den.js",
+           
+        }
+
+        for script in listScriptC11:
+            self.comboBox_SanSale_RealmeC11.addItem(script)
+            
+        # Dat Hang Vivo
+        self.menuC11 = QMenu()
+        self.menuC11.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptC11[self.comboBox_SanSale_RealmeC11.currentText()]))
+
+        #connect button
+        self.pushButton_SanSale_DatHang_C11.setMenu(self.menuC11)
+        self.add_menu(self.myListDevice, self.menuC11)
+        
+        
+        # Narzo 50i
+        listScriptNarzo= {
+            "Narzo X5 - Màu xanh": "/RemoteWifi/1111-SanSale-Narzo-Xanh.js",
+            "Narzo X5 - Đen": "/RemoteWifi/1111-SanSale-Narzo-Den.js",
+           
+        }
+
+        for script in listScriptNarzo:
+            self.comboBox_SanSale_RealmeNarzo50.addItem(script)
+            
+        # Dat Hang Vivo
+        self.menuNarzo = QMenu()
+        self.menuNarzo.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptNarzo[self.comboBox_SanSale_RealmeNarzo50.currentText()]))
+
+        #connect button
+        self.pushButton_SanSale_DatHang_Narzo50.setMenu(self.menuNarzo)
+        self.add_menu(self.myListDevice, self.menuNarzo)
+        
+        
+        ########################### Samsung #####################################
+        #Vao San Pham
+        listScriptVaoSanPhamSamsung = {
+            "Vào Sản Phẩm A12": "/RemoteWifi/1111-VaoSanPham-A12.js",
+            "Vào Sản Phẩm M32": "/RemoteWifi/1111-VaoSanPham-M32.js",
+            "Vào Sản Phẩm Tab A7 Lite": "/RemoteWifi/1111-VaoSanPham-TabA7Lite.js",
+            "Vào Sản Phẩm A03S": "/RemoteWifi/1111-VaoSanPham-A03S.js",
+           
+        }
+
+        for script in listScriptVaoSanPhamSamsung:
+            self.comboBox_SanSale_VaoTrangSamsung.addItem(script)
+            
+        # Vao San Pham
+        self.menuVaoSanPhamSamsung = QMenu()
+        self.menuVaoSanPhamSamsung.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptVaoSanPhamSamsung[self.comboBox_SanSale_VaoTrangSamsung.currentText()]))
+
+        self.pushButton_SanSale_VaoSanPhamSamsung.setMenu(self.menuVaoSanPhamSamsung)
+        self.add_menu(self.myListDevice, self.menuVaoSanPhamSamsung)
+        
+        #Samsung Đặt Hàng
+        #A12
+        listScriptA12= {
+            "A12 X5 - Màu xanh": "/RemoteWifi/1111-SanSale-A12-Xanh.js",
+            "A12 X5 - Màu Đen": "/RemoteWifi/1111-SanSale-A12-Den.js",
+           
+        }
+
+        for script in listScriptA12:
+            self.comboBox_SanSale_A12.addItem(script)
+            
+
+        self.menuA12 = QMenu()
+        self.menuA12.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptA12[self.comboBox_SanSale_A12.currentText()]))
+
+        #connect button
+        self.pushButton_SanSale_DatHang_A12.setMenu(self.menuA12)
+        self.add_menu(self.myListDevice, self.menuA12)
+        
+        
+        #M32
+        listScriptM32= {
+            "M32 X5 - Màu xanh": "/RemoteWifi/1111-SanSale-M32-Xanh.js",
+            "M32 X5 - Màu Đen": "/RemoteWifi/1111-SanSale-M32-Den.js",
+           
+        }
+
+        for script in listScriptM32:
+            self.comboBox_SanSale_M32.addItem(script)
+            
+
+        self.menuM32 = QMenu()
+        self.menuM32.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptM32[self.comboBox_SanSale_M32.currentText()]))
+
+        #connect button
+        self.pushButton_SanSale_DatHang_M32.setMenu(self.menuM32)
+        self.add_menu(self.myListDevice, self.menuM32)
+        
+        #Tab A7 Lite
+        listScriptTabA7Lite= {
+            "Tab A7 Lite X5 - Màu Bạc": "/RemoteWifi/1111-SanSale-TabA7Lite.js",
+           
+        }
+
+        for script in listScriptTabA7Lite:
+            self.comboBox_SanSale_TabA7Lite.addItem(script)
+            
+
+        self.menuTabA7Lite = QMenu()
+        self.menuTabA7Lite.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptTabA7Lite[self.comboBox_SanSale_TabA7Lite.currentText()]))
+
+        #connect button
+        self.pushButton_SanSale_DatHang_TabA7Lite.setMenu(self.menuTabA7Lite)
+        self.add_menu(self.myListDevice, self.menuTabA7Lite)
+        
+        #A03S
+        listScriptA03S= {
+            "A03S X5 - Màu xanh": "/RemoteWifi/1111-SanSale-A03S-Xanh.js",
+            "A03S X5 - Màu Đen": "/RemoteWifi/1111-SanSale-A03S-Den.js",
+           
+        }
+
+        for script in listScriptA03S:
+            self.comboBox_SanSale_A03S.addItem(script)
+            
+
+        self.menuTabA03S = QMenu()
+        self.menuTabA03S.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptA03S[self.comboBox_SanSale_A03S.currentText()]))
+
+        #connect button
+        self.pushButton_SanSale_DatHang_A03S.setMenu(self.menuTabA03S)
+        self.add_menu(self.myListDevice, self.menuTabA03S)
+        
+        
+        ########################### Xiaomi #####################################
+        #Vao San Pham
+        listScriptVaoSanPhamXiaomi= {
+            "Vào Sản Phẩm Redmi 9A": "/RemoteWifi/1111-VaoSanPham-Redmi9A.js",
+            
+        }
+
+        for script in listScriptVaoSanPhamXiaomi:
+            self.comboBox_SanSale_VaoTrangXiaomi.addItem(script)
+            
+        # Vao San Pham
+        self.menuVaoSanPhamXiaomi= QMenu()
+        self.menuVaoSanPhamXiaomi.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptVaoSanPhamXiaomi[self.comboBox_SanSale_VaoTrangXiaomi.currentText()]))
+
+        self.pushButton_SanSale_VaoSanPhamXiaomi.setMenu(self.menuVaoSanPhamXiaomi)
+        self.add_menu(self.myListDevice, self.menuVaoSanPhamXiaomi)
+        
+        #Samsung Đặt Hàng
+        #A12
+        listScriptRedmi9A= {
+            "Redmi9A X5 - Màu xanh": "/RemoteWifi/1111-SanSale-Redmi9A-Xanh.js",
+            "Redmi9A X5 - Màu Đen": "/RemoteWifi/1111-SanSale-Redmi9A-Den.js",
+           
+        }
+
+        for script in listScriptRedmi9A:
+            self.comboBox_SanSale_Redmi9A.addItem(script)
+            
+
+        self.menuRedmi9A = QMenu()
+        self.menuRedmi9A.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptRedmi9A[self.comboBox_SanSale_Redmi9A.currentText()]))
+
+        #connect button
+        self.pushButton_SanSale_DatHang_9A.setMenu(self.menuRedmi9A)
+        self.add_menu(self.myListDevice, self.menuRedmi9A)
+        
+        
+        ########################### Chuc Nang Phu #####################################
+
+        listScriptChucNangPhu= {
+            "Đổi IP 4G": "/RemoteWifi/TienIch-DoiIP4G.js",
+            "Tắt Hộp Quà 11-11": "/RemoteWifi/1111-TatHopQua.js",
+            "Kill App - Mở Lại": "/RemoteWifi/1111-ChucNangPhu-KillApp.js",
+            
+        }
+
+        for script in listScriptChucNangPhu:
+            self.comboBox_SanSale_ChucNangPhu.addItem(script)
+            
+        # Vao San Pham
+        self.menuChucNangPhuDatHang= QMenu()
+        self.menuChucNangPhuDatHang.triggered.connect(lambda x: self.apiPlayScript(
+            x.text(), listScriptChucNangPhu[self.comboBox_SanSale_ChucNangPhu.currentText()]))
+
+        self.pushButton_SanSale_ChucNangPhu.setMenu(self.menuChucNangPhuDatHang)
+        self.add_menu(self.myListDevice, self.menuChucNangPhuDatHang)
         
         
 
