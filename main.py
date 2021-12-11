@@ -31,7 +31,7 @@ owner = listOwner[0]
 
 listDeviceDict = {
     "192.168.3.21": "1",
-    "192.168.3.22": "2",
+    "192.168.2.12": "2",
     "192.168.3.23": "3",
     "192.168.3.24": "4",
     "192.168.3.25": "5",
@@ -802,8 +802,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         # Narzo 50i
         listScriptNarzo= {
+            "Mua - X10": "/RemoteWifi/1212-MuaX10-Narzo.js",
+            
             "Narzo X5 - Màu xanh": "/RemoteWifi/1111-SanSale-Narzo-Xanh.js",
             "Narzo X5 - Đen": "/RemoteWifi/1111-SanSale-Narzo-Den.js",
+            
+            "Xem Đơn Đặt": "/RemoteWifi/1212-XemDonDat.js",
+            
            
         }
 
@@ -962,8 +967,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         listScriptChucNangPhu= {
             "Đổi IP 4G": "/RemoteWifi/TienIch-DoiIP4G.js",
-            "Tắt Hộp Quà 11-11": "/RemoteWifi/1111-TatHopQua.js",
-            "Kill App - Mở Lại": "/RemoteWifi/1111-ChucNangPhu-KillApp.js",
+            "Full Đăng Nhập TK Khác": "/RemoteWifi/LZD1-DangNhapBangMatKhau.js",
+            "Lưu RRS": "/RemoteWifi/XoaInfo-LuuRRS.js",
+            "Restore RRS": "/RemoteWifi/XoaInfo-Restore.js",
             
         }
 
@@ -975,27 +981,33 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.menuChucNangPhuDatHang.triggered.connect(lambda x: self.apiPlayScript(
             x.text(), listScriptChucNangPhu[self.comboBox_SanSale_ChucNangPhu.currentText()]))
 
-        self.pushButton_SanSale_TruotVaDatDon.setMenu(self.menuChucNangPhuDatHang)
+        
+        self.pushButton_SanSale_ChucNangPhu.setMenu(self.menuChucNangPhuDatHang)
         self.add_menu(self.myListDevice, self.menuChucNangPhuDatHang)
         
         
         ###list script
         listScriptTruot= {
-            "Trượt Khung Đặt Đơn": "/RemoteWifi/1111-SanSale-TruotMuaHang.js",
+            "Xem Đơn Đặt": "/RemoteWifi/1212-XemDonDat.js",
+            "Trượt Và Đặt (Lần 1)": "/RemoteWifi/1212-TruotMuaHang.js",
+            "Click Thanh Toan": "/RemoteWifi/1212-ClickThanhToan.js",
             "Click Đặt Đơn": "/RemoteWifi/1111-ClickDatDon.js",
             
         }
 
         for script in listScriptTruot:
             self.comboBox_SanSale_TruotVaDatDon.addItem(script)
-            
-        # Vao San Pham
+        
+        
+        test = (listScriptTruot[self.comboBox_SanSale_TruotVaDatDon.currentText()])
         self.menuTruot= QMenu()
         self.menuTruot.triggered.connect(lambda x: self.apiPlayScript(
             x.text(), listScriptTruot[self.comboBox_SanSale_TruotVaDatDon.currentText()]))
 
-        self.pushButton_SanSale_ChucNangPhu.setMenu(self.menuTruot)
+        self.pushButton_SanSale_TruotVaDatDon.setMenu(self.menuTruot)
+        
         self.add_menu(self.myListDevice, self.menuTruot)
+        
         
         
 
