@@ -723,6 +723,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         #Vivo Đặt Hàng
         listScriptDatHangVivo= {
+            "Mua - X10": "/RemoteWifi/1212-MuaX10-Y12s.js",
             "Y12S X5 - Màu xanh": "/RemoteWifi/1111-SanSale-Y12S-Xanh.js",
             "Y12S X5 - Màu đen": "/RemoteWifi/1111-SanSale-Y12S-Den.js",
             "Y12S X5 - Màu xanh 2021": "/RemoteWifi/1111-SanSale-Y12S-Xanh-2021.js",
